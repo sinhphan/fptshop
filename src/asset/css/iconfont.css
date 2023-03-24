@@ -1,0 +1,164 @@
+
+.base-ic [class*=" ic-"]::before,.base-ic [class*=" icon-"]::before,.base-ic [class^=ic-]::before,.base-ic [class^=icon-]::before {
+  font-family: unset
+}
+
+.base-ic [class*=" ic-"],.base-ic [class*=" icon-"],.base-ic [class^=ic-],.base-ic [class^=icon-] {
+  font-family: header-icon!important;
+  speak: never;
+  font-style: normal;
+  font-weight: 400;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale
+}
+
+.base-ic .ic-edit:before {
+  content: "\e91c"
+}
+
+.base-ic .ic-exclamation:before {
+  content: "\e91b"
+}
+
+.base-ic .ic-plus:before {
+  content: "\e919"
+}
+
+.base-ic .ic-minus:before {
+  content: "\e91a"
+}
+
+.base-ic .ic-logout:before {
+  content: "\e917"
+}
+
+.base-ic .ic-close:before {
+  content: "\e918"
+}
+
+.base-ic .ic-user:before {
+  content: "\e916"
+}
+
+.base-ic .ic-location:before {
+  content: "\e915"
+}
+
+.base-ic .ic-tablet:before {
+  content: "\e914"
+}
+
+.base-ic .ic-save:before {
+  content: "\e913"
+}
+
+.base-ic .ic-menu:before {
+  content: "\e911"
+}
+
+.base-ic .ic-search:before {
+  content: "\e912"
+}
+
+.base-ic .ic-windows:before {
+  content: "\e910"
+}
+
+.base-ic .ic-angle-down:before {
+  content: "\e900"
+}
+
+.base-ic .ic-angle-up:before {
+  content: "\e901"
+}
+
+.base-ic .ic-apple:before {
+  content: "\e902"
+}
+
+.base-ic .ic-cart:before {
+  content: "\e903"
+}
+
+.base-ic .ic-doc:before {
+  content: "\e904"
+}
+
+.base-ic .ic-gift:before {
+  content: "\e905"
+}
+
+.base-ic .ic-headphone:before {
+  content: "\e906"
+}
+
+.base-ic .ic-home-appliances:before {
+  content: "\e907"
+}
+
+.base-ic .ic-laptop:before {
+  content: "\e908"
+}
+
+.base-ic .ic-mobile-phone:before {
+  content: "\e909"
+}
+
+.base-ic .ic-pay-utilities:before {
+  content: "\e90a"
+}
+
+.base-ic .ic-pc-tower:before {
+  content: "\e90b"
+}
+
+.base-ic .ic-print:before {
+  content: "\e90c"
+}
+
+.base-ic .ic-promo:before {
+  content: "\e90d"
+}
+
+.base-ic .ic-renew:before {
+  content: "\e90e"
+}
+
+.base-ic .ic-sd-card:before {
+  content: "\e90f"
+}
+
+.base-ic .ic-th-list:before {
+  content: "\e91f"
+}
+
+.base-ic .ic-chat:before {
+  content: "\e91d"
+}
+
+.base-ic .ic-eye:before {
+  content: "\e91e"
+}
+
+.ic-eye-off:before {
+  content: "\ea67"
+}
+
+.base-ic .ic-eye-off:before {
+  content: "\e923"
+}
+
+.base-ic .ic-location:before {
+  content: "\e91f"
+}
+
+.base-ic .ic-noti:before {
+  content: "\e920"
+}
+
+.base-ic .ic-check:before {
+  content: "\e922"
+}

@@ -1,6 +1,9 @@
+import { memo } from "react";
 import img from "../../asset/img"
 
 function Logo() {
+  // console.log("Logo re-render");
+
   const logo = `url("${img.logo}")`
   return (<>
     <div
@@ -13,4 +16,4 @@ function Logo() {
 
 // `url(\'${DOMAIN}${ADMIN_SETTINGS.logoURL}\')`
 
-export default Logo
+export default Logo = memo(Logo)

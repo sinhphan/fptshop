@@ -1,12 +1,15 @@
 import { ICONS } from "../../config";
 
-function Icon({iconid}) {
+function Icon({ iconid }) {
   // console.log('icon' + iconid);
-  let icon = ICONS.filter(icon=> icon.id === +iconid)
+  let icon = ICONS.filter(icon => icon.id === +iconid)
 
-  return (<>                  
-    {icon.map(e=><i className={`fa-solid ${e.icon} `} key={e.id}/>)}
+  return (<>
+    {icon.map(e => (
+      <div class="base-ic">
+        <i class={`demo-icon ${e.icon}`}></i>
+      </div>))}
   </>)
 }
 
-export default Icon
+export default Icon = Icon

@@ -1,6 +1,6 @@
-import logo from './logo.svg';
 import './asset/css/baseresponsive.css';
 import './asset/css/base.css';
+import './asset/css/iconfont.css';
 
 import Header from './components/header/header';
 

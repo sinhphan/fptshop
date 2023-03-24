@@ -1,3 +1,4 @@
+import { memo } from "react";
 import { ADMIN_SETTINGS } from "../../config"
 import { Icon } from "../global"
 
@@ -5,7 +6,8 @@ const TOP_NAVS = ADMIN_SETTINGS.topNav
 const TOP_NAVMOBILE = ADMIN_SETTINGS.topNavMobile
 
 function TopNavigation() {
-
+  // console.log('TopNavigation re-render');
+  
   return (<>
     {/* Top navigatiion */}
     <div className="col lx-5 l-5 only-pc">
@@ -35,7 +37,7 @@ function TopNavigation() {
   </>)
 }
 
-export default TopNavigation
+export default TopNavigation = memo(TopNavigation)
 
 
 
@@ -51,7 +53,7 @@ const TopNavigationLink = () => {
           <div className={dropdownClass} key={navId} >
             <a className="top-nav-link" href="#">
               <p>
-                <Icon iconid={`${nav.iconId}`} />
+                <Icon iconid={nav.iconId} />
               </p>
               <p>
                 {nav.text}

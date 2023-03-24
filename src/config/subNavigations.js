@@ -1,12 +1,14 @@
-const SUB_NAVIGATIONS = [
+export const SUB_NAVIGATIONS = [
   {
     id: 1,
+    parentId:1,
     childrens: [
       {
         id: 1,
         category: "Hãng sản xuất",
         order: 1,
-        displayCollumn: 1,
+        menuLayoutId: 1,
+        mobileDisplay: true,
         listLink: [
           {
             id: 1,
@@ -68,7 +70,8 @@ const SUB_NAVIGATIONS = [
         id: 2,
         category: "Đồng hồ thông minh",
         order: 2,
-        displayCollumn: 1,
+        menuLayoutId: 1,
+        mobileDisplay: false,
         listLink:[
           {
             id: 1,
@@ -124,7 +127,8 @@ const SUB_NAVIGATIONS = [
         id: 3,
         category: "Mức Giá",
         order: 1,
-        displayCollumn: 2,
+        menuLayoutId: 2,
+        mobileDisplay: false,
         listLink:[
           {
             id: 1,
@@ -162,37 +166,35 @@ const SUB_NAVIGATIONS = [
         id: 4,
         category: "Bán chạy nhất",
         order: 1,
-        displayCollumn: 3,
+        menuLayoutId: 3,
+        mobileDisplay: false,
         listLink:[
           {
             id: 1,
-            text: 'Dưới 2 triệu',
+            text: 'Samsung Galaxy A14 4G',
             link: '#',
-            image: '',
+            image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/3/3/638134385008402132_samsung-galaxy-a14-4g-dd-moi.jpg',
           },
           {
             id: 2,
-            text: 'Từ 2 - 4 triệu',
+            text: 'OPPO A57 4GB-128GB',
             link: '#',
-            image: '',
+            image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/20/638071500758726769_oppo-a57-dd.jpg',
           },
+        ]
+      },
+      {
+        id: 5,
+        category: "ADS",
+        order: 2,
+        menuLayoutId: 3,
+        mobileDisplay: false,
+        listLink:[
           {
-            id: 3,
-            text: 'Từ 4 - 7 triệu',
+            id: 1,
+            text: '',
             link: '#',
-            image: '',
-          },
-          {
-            id: 4,
-            text: 'Từ 7 - 13 triệu',
-            link: '#',
-            image: '',
-          },
-          {
-            id: 5,
-            text: 'Trên 13 triệu',
-            link: '#',
-            image: '',
+            image: 'https://images.fpt.shop/unsafe/fit-in/248x248/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/17/638122426805162395_F-H4_248x248@2x.png'
           },
         ]
       },

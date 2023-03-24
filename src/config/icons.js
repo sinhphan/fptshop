@@ -1,58 +1,58 @@
 export const ICONS = [
   {
     id : 1,
-    icon : 'fa-file-lines'
+    icon : 'ic-doc'
   },
   {
     id : 2,
-    icon : 'fa-file-invoice-dollar'
+    icon : 'ic-pay-utilities'
   },
   {
     id : 3,
-    icon : 'fa-circle-user'
+    icon : 'ic-user'
   },
   {
     id : 4,
-    icon : 'fa-cart-shopping'
+    icon : 'ic-cart'
   },
   {
     id : 5,
-    icon : 'fa-mobile'
+    icon : 'ic-mobile-phone'
   },
   {
     id : 6,
-    icon : 'fa-laptop'
+    icon : 'ic-laptop'
   },
   {
     id : 7,
-    icon : 'fa-mobile'
+    icon : 'ic-tablet'
   },
   {
     id : 8,
-    icon : 'fa-cart-apple'
+    icon : 'ic-apple'
   },
   {
     id : 9,
-    icon : 'fa-cart-desktop'
+    icon : 'ic-pc-tower'
   },
   {
     id : 10,
-    icon : 'fa-cart-rotate-right'
+    icon : 'ic-headphone'
   },
   {
     id : 11,
-    icon : 'fa-cart-house-flag'
+    icon : 'ic-renew'
   },
   {
     id : 12,
-    icon : 'fa-cart-sim-card'
+    icon : 'ic-home-appliances'
   },
   {
     id : 13,
-    icon : 'fa-cart-sim-card'
+    icon : 'ic-sd-card'
   },
   {
     id : 14,
-    icon : 'fa-shield-virus'
+    icon : 'ic-promo'
   },
 ]

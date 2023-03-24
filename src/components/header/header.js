@@ -1,45 +1,18 @@
-import {useState} from 'react'
+import {memo} from 'react'
 
 import "../../asset/css/header.css"
-import HeaderLogo from "./headerLogo"
-import HeaderSearchFormPC from "./headerSearchFormPC"
-import MobileMenu from "./mobileMenu"
-import TopNavigation from "./topNavigation"
+import MainNavigation from './mainNavigation'
+import TopNavigationWrap from './topNavigationWrap'
+
 
 function Header(){
-  const [openMobileMenu,setOpenMobileMenu] = useState(false)
-
-
-  const handleOpenMobileMenu = ()=>{setOpenMobileMenu(!openMobileMenu)}
-
-
+  // console.log('Header re-render');
   return (
     <>
       {/* header  */}
       <div className="header">
-        {/* top navigation  */}
-        <div className="top-nav">
-          <div className="flex js-center">
-            <div className="width">
-              <div className="flex ali-center">
-                <HeaderLogo onlcikMenuButton={handleOpenMobileMenu}/>
-
-                <div className="col lx-5 l-5 only-pc">
-                <HeaderSearchFormPC />
-                </div>
-                
-                <TopNavigation  />
-
-                {/* search form in mobile  */}
-                <div className="col c-12 only-mobile">
-                <HeaderSearchFormPC />
-                </div>
-                <MobileMenu open={openMobileMenu} closeMenu={handleOpenMobileMenu} />
-              </div>
-            </div>
-          </div>
-        </div>
-        {/* end top navigation  */}
+        <TopNavigationWrap />
+        <MainNavigation />
       </div>
       {/* end header  */}
     </>
@@ -47,4 +20,4 @@ function Header(){
 }
 
 
-export default Header
+export default Header = memo(Header)

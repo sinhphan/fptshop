@@ -1,9 +1,9 @@
 
-
 import { Logo } from "../global"
 
 function HeaderLogo({onlcikMenuButton}) {
-
+  // console.log('HeaderLogo re-render' );
+  
   return (
     <>
       {/* logo in pc */}
@@ -27,4 +27,4 @@ function HeaderLogo({onlcikMenuButton}) {
     </>)
 }
 
-export default HeaderLogo
+export default HeaderLogo = HeaderLogo

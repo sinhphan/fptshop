@@ -1,7 +1,10 @@
+import { memo } from "react"
 import { Logo } from "../global"
 import MobileMenuContent from "./mobileMenuContent"
 
 function MobileMenu({open,closeMenu}) {
+  // console.log('MobileMenu re-render');
+
 
   const handleStopCloseMenu = e=>{e.stopPropagation()}
 
@@ -35,4 +38,4 @@ function MobileMenu({open,closeMenu}) {
   )
 }
 
-export default MobileMenu
+export default MobileMenu = memo(MobileMenu)

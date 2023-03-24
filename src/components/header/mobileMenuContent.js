@@ -1,6 +1,8 @@
+import { memo } from "react"
 
 function MobileMenuContent() {
-  
+  // console.log('MobileMenuContent re-render');
+
   return (<>
     {/* main sidebar  */}
     <div className="sidebar-content">
@@ -319,4 +321,4 @@ function MobileMenuContent() {
 }
 
 
-export default MobileMenuContent
+export default MobileMenuContent = memo(MobileMenuContent)

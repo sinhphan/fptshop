@@ -1,12 +1,14 @@
 
 .top-nav {
   background-color: var(--red);
+  height: 56px;
 }
 
 .header-logo {
   width: 157px;
   height: 56px;
   background: no-repeat;
+  background-position: left -2px top 2px;
 }
 
 .search-form-pc {
@@ -15,23 +17,26 @@
 
 .search-form-pc input {
   flex-grow: 11;
+  border-radius: 3px 0 0 3px;
 }
 
 .search-form-pc input,
 .search-form-pc button {
   border: none;
-  border-radius: 0;
   outline: none;
   padding: 8px;
 }
 
 .search-form-pc button {
-  flex-grow:1 ;
-  min-width: 58px;
+  cursor: pointer;
+  width: 58px;
+  height: 38px;
+  background-color: #333;
   padding: 6px 18px;
-  font-size: 2.2rem;
-  background-color: var(--black);
+  font-size: 2.4rem;
   color: var(--white);
+  border-radius: 0 3px 3px 0;
+  overflow: hidden;
 }
 
 .top-nav-link-pc {
@@ -52,9 +57,22 @@
   color: var(--white);
 }
 
+.top-nav-link:hover {
+  color: var(--white);
+}
+
 .top-nav-link i {
   padding-bottom: 5px;
  font-size: 2.4rem;
+}
+
+.top-nav-link i.ic-user {
+  background-color: white;
+  color: var(--red);
+  font-size: 1.5rem;
+  padding: 4px;
+  border-radius: 50%;
+  line-height: 24px;
 }
 
 .top-nav-link-mobile a{
@@ -75,28 +93,26 @@
 
 .main-nav-pc {
   height: 36px;
-  background-color: var(--black);
+  background-color: #252525;
 }
 
 .main-nav-link {
   color: var(--white);
+  font-weight: 400;
+  line-height: 14px;
   display: flex;
   align-items: center;
-}
-
-.main-nav-link{
   text-transform: uppercase;
-  display: inline-block;
-  padding-top:10px ;
-  padding-bottom:10px ;
+  padding: 10px 0;
 }
 
 .main-nav-link i {
   font-size: 1.6rem;
+  padding-right: 5px;
 }
 
 .main-nav-link:hover {
-  color: var(--gray-2);
+  color: #aaa;
 }
 
 .main-nav-pc-content .hover-dropdown.ddtype-box:hover {
