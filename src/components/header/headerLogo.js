@@ -18,7 +18,9 @@ function HeaderLogo({onlcikMenuButton}) {
           className="mobile-menu-btn"
           onClick= {onlcikMenuButton}
         >
-          <i className="fa-solid fa-bars" />
+          <div className="base-ic flex ali-center">
+            <i className="demo-icon ic-menu"></i>
+          </div>
         </div>
         <Logo />
       </div>

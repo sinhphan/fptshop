@@ -105,7 +105,7 @@ li {
   display: none;
   position: absolute;
   background-color: var(--white);
-  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
   z-index: 2;
 }
 

@@ -173,12 +173,14 @@ export const SUB_NAVIGATIONS = [
             id: 1,
             text: 'Samsung Galaxy A14 4G',
             link: '#',
+            price: '4.490.000 ₫',
             image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/3/3/638134385008402132_samsung-galaxy-a14-4g-dd-moi.jpg',
           },
           {
             id: 2,
             text: 'OPPO A57 4GB-128GB',
             link: '#',
+            price: '4.590.000 ₫',
             image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/20/638071500758726769_oppo-a57-dd.jpg',
           },
         ]

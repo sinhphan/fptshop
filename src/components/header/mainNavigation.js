@@ -5,7 +5,7 @@ import { Icon } from "../global"
 const mainNav = ADMIN_SETTINGS.mainNav
 
 function MainNavigation() {
-  console.log('MainNavigation re-render');
+  // console.log('MainNavigation re-render');
 
   return (<>
     <div className="main-nav-pc only-pc">
@@ -45,68 +45,32 @@ const MainNavigationItem = ({ childrens, navItem }) => {
 
 const MainNavDropdownContent = ({ navContent }) => {
   navContent = navContent[0].childrens
-  console.log(navContent);
+
   const navInLayout1 = navContent.filter(e => e.menuLayoutId === 1)
   const navInLayout2 = navContent.filter(e => e.menuLayoutId === 2)
   const navInLayout3 = navContent.filter(e => e.menuLayoutId === 3)
 
-  console.log(navInLayout1);
+  // console.log(navInLayout3);
 
   return (<>
     <div className="dropdown-content ddtype-box width">
       <div className="flex">
         <div className="col lx-4 l-4">
-          <div className="custom-menu flex ">
-              <CustomMenu1 menus={navInLayout1}/>
+          <div
+            className="custom-menu flex "
+            style={{ flexDirection: 'column' }}
+          >
+            <CustomMenu1 menus={navInLayout1} />
           </div>
         </div>
         <div className="col lx-2 l-2">
           <div className="custom-menu">
-            <div>
-              <h3>Mức giá</h3>
-              <a href="#">Dưới 2tr</a>
-              <a href="#">Dưới 2tr</a>
-              <a href="#">Dưới 2tr</a>
-            </div>
+            <CustomMenu2 menus={navInLayout2} />
           </div>
         </div>
         <div className="col lx-6 l-6">
           <div className="custom-menu last-custom-menu">
-            <div className="flex js-between h-100">
-              <div className="product-best-sell">
-                <h3>Bán chạy nhất</h3>
-                <div className="product flex">
-                  <div className="product-img">
-                    <img
-                      src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/3/3/638134385008402132_samsung-galaxy-a14-4g-dd-moi.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="product-desc">
-                    <a href="#">Samsung Galaxy A14 4G 4GB</a>
-                    <span>4.490.000 ₫</span>
-                  </div>
-                </div>
-                <div className="product flex">
-                  <div className="product-img">
-                    <img
-                      src="https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/20/638071500758726769_oppo-a57-dd.jpg"
-                      alt=""
-                    />
-                  </div>
-                  <div className="product-desc">
-                    <a href="#">OPPO A57 4GB-128GB</a>
-                    <span>4.590.000 ₫</span>
-                  </div>
-                </div>
-              </div>
-              <div className="product-sale flex ali-center">
-                <img
-                  src="asset/img/638122426805162395_F-H4_248x248@2x.webp"
-                  alt=""
-                />
-              </div>
-            </div>
+            <CustomMenu3 menus={navInLayout3} />
           </div>
         </div>
       </div>
@@ -117,18 +81,92 @@ const MainNavDropdownContent = ({ navContent }) => {
 const CustomMenu1 = ({ menus }) => {
   return (<>
     {menus.map((menu, menuId) => {
-      <div style={{ order: menu.order }} key={menuId} >
-        <h3>{menu.text}</h3>
-        <div 
-          className="flex"
-
+      return (
+        <div
+          style={{ order: menu.order }}
+          key={menuId}
         >
-          <a href="#" className="lx-4 l-6">
-            Apple(iphone)
-          </a>
-         
+          <h3>{menu.category}</h3>
+
+          <div className="flex">
+            {menu.listLink.map((link, linkId) => {
+              return <a
+                href={link.link}
+                className="lx-4 l-6"
+                key={linkId}
+              >
+                {link.text}
+              </a>
+            }
+            )}
+
+          </div>
         </div>
-      </div>
+      )
     })}
+  </>)
+}
+
+const CustomMenu2 = ({ menus }) => {
+  return (<>
+    {menus.map((menu, menuId) => {
+      return (
+        <div key={menuId}>
+          <h3>{menu.category}</h3>
+          {menu.listLink.map((link, linkId) => {
+            return <a
+              href={link.link}
+              key={linkId}
+            >
+              {link.text}
+            </a>
+          })}
+        </div>
+      )
+    })}
+  </>)
+}
+
+const CustomMenu3 = ({ menus }) => {
+  const [bestSell, adsBox] = menus
+  return (<>
+    <div className="flex js-between h-100">
+      <div className="product-best-sell">
+        <h3>{bestSell.category}</h3>
+
+        {bestSell.listLink.map((link, linkId) => {
+          return (
+          <div 
+            className="product flex" 
+            key={linkId}
+          >
+            <div className="product-img c-6">
+
+            <a href={link.link}>
+              <img
+                src={link.image}
+                alt=""
+              />
+            </a>
+              
+            </div>
+            <div className="product-desc">
+              <a href={link.link}>{link.text}</a>
+              <a href={link.link}><span>{link.price}</span></a>
+              
+            </div>
+
+          </div>)
+        })}
+      </div>
+      <div className="product-sale flex ali-center c-6">
+        <a href={adsBox.listLink.link} >
+          <img
+            src={adsBox.listLink[0].image}
+            alt=""
+          />
+        </a>
+      </div>
+    </div>
   </>)
 }

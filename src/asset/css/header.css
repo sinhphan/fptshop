@@ -1,7 +1,6 @@
 
 .top-nav {
   background-color: var(--red);
-  height: 56px;
 }
 
 .header-logo {
@@ -120,8 +119,13 @@
   position: unset;
 }
 
+.main-nav-pc-content .hover-dropdown:hover .dropdown-content.ddtype-box{
+  font-size: 1.3rem;
+}
+
 .main-nav-pc-content .hover-dropdown:hover .dropdown-content.ddtype-box,
 .main-nav-pc-content .hover-dropdown:hover .dropdown-content.ddtype-list {
+  border: 1px solid #d3d3d3;
   left: 0;
   top: 36px;
 }
@@ -182,7 +186,7 @@
   width: 330px;
 }
 
-.sidebar-mobile .sidebar-content-group .sidebar-content-item>i {
+.sidebar-mobile .sidebar-content-group .sidebar-content-item>.base-ic i {
   color: var(--gray-2);
   cursor: pointer;
   display: inline-block;
@@ -244,7 +248,7 @@
 
 .custom-menu {
   padding: 8px ;
-  border-right: 1px solid var(--gray-2);
+  border-right: 1px solid #d3d3d3;
   height: 100%;
 }
 
@@ -255,12 +259,13 @@
 .custom-menu h3 {
   color: var(--gray);
   padding: 8px 16px 8px 0;
+  text-transform: uppercase;
 }
 
 .custom-menu a {
   display: block;
-  padding: 8px 16px 8px 0;
-  color: var(--gray-2)
+  padding: 8px 12px 8px 0;
+  color: #3d3d3d;
 }
 
 .custom-menu a:hover {
@@ -269,15 +274,21 @@
 
 
 .custom-menu .product-img {
-  padding: 8px 8px 8px 0;
+  padding: 8px 0 8px 0;
 }
 
 .custom-menu .product-desc {
   line-height: 1.5;
-  padding-top: 5px;
+  padding-top: 15px;
+}
+
+.custom-menu .product-desc a{
+  font-size: 1.4rem;
+  padding: 0;
 }
 
 .custom-menu .product-desc span {
+  font-weight: bold;
   color: var(--red);
 }
 

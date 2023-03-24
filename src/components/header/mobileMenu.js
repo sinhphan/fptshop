@@ -21,10 +21,12 @@ function MobileMenu({open,closeMenu}) {
           <div className="sidebar-header">
             <div className="flex js-between">
               <Logo />
-              <i 
-                className="fa-solid fa-xmark" 
-                onClick={closeMenu}
-              />
+              <div className="base-ic flex ali-center">
+                <i 
+                  className="demo-icon ic-close"
+                  onClick={closeMenu}
+                ></i>
+              </div>
             </div>
           </div>
 

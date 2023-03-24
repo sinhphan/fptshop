@@ -191,7 +191,7 @@
 
 @media (min-width: 1023px) {
   .width { 
-    width: 984px;
+    width: 1020px;
   }
   
   .l-0{
@@ -329,6 +329,10 @@
 }
 
 @media (min-width: 1023px) {
+  .top-nav {
+    height: 56px;
+  }
+
   .only-mobile  {
     display: none;
   }
