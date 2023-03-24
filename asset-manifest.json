@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/fptshop/static/css/main.f5ddc8a7.css",
-    "main.js": "/fptshop/static/js/main.97d5d747.js",
+    "main.js": "/fptshop/static/js/main.68e796e6.js",
     "static/js/787.f50706d1.chunk.js": "/fptshop/static/js/787.f50706d1.chunk.js",
     "static/media/slider.webp": "/fptshop/static/media/slider.377c5a44871339d9ad6b.webp",
     "static/media/Roboto-Medium.woff2": "/fptshop/static/media/Roboto-Medium.fc0337b9cf1cce2e6e1e.woff2",
@@ -22,11 +22,11 @@
     "static/media/brand-del.webp": "/fptshop/static/media/brand-del.cc1742aef194eb5d89da.webp",
     "index.html": "/fptshop/index.html",
     "main.f5ddc8a7.css.map": "/fptshop/static/css/main.f5ddc8a7.css.map",
-    "main.97d5d747.js.map": "/fptshop/static/js/main.97d5d747.js.map",
+    "main.68e796e6.js.map": "/fptshop/static/js/main.68e796e6.js.map",
     "787.f50706d1.chunk.js.map": "/fptshop/static/js/787.f50706d1.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f5ddc8a7.css",
-    "static/js/main.97d5d747.js"
+    "static/js/main.68e796e6.js"
   ]
 }
