@@ -131,7 +131,7 @@ const CustomMenu3 = ({ menus }) => {
   const [bestSell, adsBox] = menus
   return (<>
     <div className="flex js-between h-100">
-      <div className="product-best-sell">
+      <div className="product-best-sell c-6" >
         <h3>{bestSell.category}</h3>
 
         {bestSell.listLink.map((link, linkId) => {
@@ -140,7 +140,7 @@ const CustomMenu3 = ({ menus }) => {
             className="product flex" 
             key={linkId}
           >
-            <div className="product-img c-6">
+            <div className="product-img">
 
             <a href={link.link}>
               <img
