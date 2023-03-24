@@ -50,12 +50,14 @@ const MainNavDropdownContent = ({ navContent }) => {
   const navInLayout2 = navContent.filter(e => e.menuLayoutId === 2)
   const navInLayout3 = navContent.filter(e => e.menuLayoutId === 3)
 
+  console.log(navInLayout1);
+
   return (<>
     <div className="dropdown-content ddtype-box width">
       <div className="flex">
         <div className="col lx-4 l-4">
           <div className="custom-menu flex ">
-
+              <CustomMenu1 menus={navInLayout1}/>
           </div>
         </div>
         <div className="col lx-2 l-2">
@@ -117,9 +119,10 @@ const CustomMenu1 = ({ menus }) => {
     {menus.map((menu, menuId) => {
       <div style={{ order: menu.order }} key={menuId} >
         <h3>{menu.text}</h3>
+        <div 
+          className="flex"
 
-        
-        <div className="flex">
+        >
           <a href="#" className="lx-4 l-6">
             Apple(iphone)
           </a>

@@ -17,6 +17,7 @@
 
 .search-form-pc input {
   flex-grow: 11;
+  font-size: 1.4rem;
   border-radius: 3px 0 0 3px;
 }
 

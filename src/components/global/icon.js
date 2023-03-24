@@ -6,8 +6,8 @@ function Icon({ iconid }) {
 
   return (<>
     {icon.map(e => (
-      <div class="base-ic">
-        <i class={`demo-icon ${e.icon}`}></i>
+      <div className="base-ic">
+        <i className={`demo-icon ${e.icon}`}></i>
       </div>))}
   </>)
 }
