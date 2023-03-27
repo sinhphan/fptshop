@@ -1,6 +1,6 @@
 import { memo } from "react"
 import { ADMIN_SETTINGS, SUB_NAVIGATIONS } from "../../config"
-import { Icon } from "../global"
+import MainNavigationItem from "./mainNavigationItem"
 
 const mainNav = ADMIN_SETTINGS.mainNav
 
@@ -29,54 +29,6 @@ function MainNavigation() {
 
 export default MainNavigation = memo(MainNavigation)
 
-const MainNavigationItem = ({ childrens, navItem }) => {
-  let hasChildrens = childrens.length > 0
-  let cssClass = hasChildrens ? 'hover-dropdown ddtype-box main-nav-pc-item' : 'main-nav-pc-item'
-  return (<>
-    <div className={cssClass}>
-      <a href="#" className="main-nav-link ">
-        <Icon iconid={navItem.iconId} /> {navItem.text}
-      </a>
-      {hasChildrens && <MainNavDropdownContent navContent={childrens} />}
-    </div>
-  </>)
-}
-
-
-const MainNavDropdownContent = ({ navContent }) => {
-  navContent = navContent[0].childrens
-
-  const navInLayout1 = navContent.filter(e => e.menuLayoutId === 1)
-  const navInLayout2 = navContent.filter(e => e.menuLayoutId === 2)
-  const navInLayout3 = navContent.filter(e => e.menuLayoutId === 3)
-
-  // console.log(navInLayout3);
-
-  return (<>
-    <div className="dropdown-content ddtype-box width">
-      <div className="flex">
-        <div className="col lx-4 l-4">
-          <div
-            className="custom-menu flex "
-            style={{ flexDirection: 'column' }}
-          >
-            <CustomMenu1 menus={navInLayout1} />
-          </div>
-        </div>
-        <div className="col lx-2 l-2">
-          <div className="custom-menu">
-            <CustomMenu2 menus={navInLayout2} />
-          </div>
-        </div>
-        <div className="col lx-6 l-6">
-          <div className="custom-menu last-custom-menu">
-            <CustomMenu3 menus={navInLayout3} />
-          </div>
-        </div>
-      </div>
-    </div>
-  </>)
-}
 
 const CustomMenu1 = ({ menus }) => {
   return (<>

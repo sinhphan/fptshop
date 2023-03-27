@@ -1,9 +1,8 @@
 import { memo } from "react";
 
 import { ADMIN_SETTINGS } from "../../config"
-import { Icon } from "../global"
+import TopNavigationLink from "./topNavigationLink"
 
-const TOP_NAVS = ADMIN_SETTINGS.topNav
 const TOP_NAVMOBILE = ADMIN_SETTINGS.topNavMobile
 
 function TopNavigation() {
@@ -42,46 +41,3 @@ function TopNavigation() {
 
 export default TopNavigation = memo(TopNavigation)
 
-
-
-const TopNavigationLink = () => {
-
-  return (<>
-    {TOP_NAVS.map(
-      (nav, navId) => {
-        let isSubNav = nav.subNav.length > 0
-        let dropdownClass = isSubNav ? "hover-dropdown top-nav-link-wrap" : "top-nav-link-wrap"
-
-        return (
-          <div className={dropdownClass} key={navId} >
-            <a className="top-nav-link" href="#">
-              <Icon iconid={nav.iconId} />
-              <p>
-                {nav.text}
-              </p>
-            </a>
-
-            {isSubNav && <DropDownContent subNav={nav.subNav} />}
-
-          </div>
-        )
-      }
-    )}
-  </>)
-}
-
-const DropDownContent = ({ subNav }) => {
-  return (<>
-    <div className="dropdown-content ddtype-list">
-      {subNav.map(
-        (subNav, subNavId) =>
-          <a
-            href={subNav.link}
-            key={subNavId}
-          >
-            {subNav.text}
-          </a>
-      )}
-    </div>
-  </>)
-}
