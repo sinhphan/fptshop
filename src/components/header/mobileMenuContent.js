@@ -1,12 +1,27 @@
-import { Children, memo } from "react"
+import { memo, useState } from "react"
 
 import { ADMIN_SETTINGS, SUB_NAVIGATIONS } from "../../config"
 import { Icon } from "../global"
+import MobileMenuDropDownContent from "./mobileMenuDropDownContent"
 
 const mainNav = ADMIN_SETTINGS.mainNav
 
 function MobileMenuContent() {
   // console.log('MobileMenuContent re-render');
+  const [openSubMenu, setOpenSubMenu] = useState({id:0,open:false})
+
+  const handleOpenSubMemu = (e)=>{
+    let id = +e.currentTarget.dataset.id
+    let open = openSubMenu.id === id ? !openSubMenu.open : true;
+    const newOpenSubMenu = {
+        id: id,
+        open: open
+      }
+    
+    setOpenSubMenu(newOpenSubMenu)
+  }
+
+  // console.log(openSubMenu);
 
   return (<>
     {/* main sidebar  */}
@@ -22,34 +37,45 @@ function MobileMenuContent() {
         </div>
       </div>
       <div className="sidebar-content-group">
-        {mainNav.map((navItem, navItemId) => {
+        {mainNav.map((navItem) => {
           let childrens = SUB_NAVIGATIONS.filter(e => e.parentId === navItem.id)
           let hasChildren = false
           let mobileChild
           let cssClass
+          let activeclass
+          let isOpen
 
           if (childrens.length > 0) {
             mobileChild = childrens[0].childrens.filter(e => e.mobileDisplay)
             hasChildren = mobileChild.length > 0
-
-            mobileChild = hasChildren ? mobileChild[0].listLink : []
+            isOpen = openSubMenu.id === navItem.id ? openSubMenu.open : false
+            activeclass = (openSubMenu.id === navItem.id && openSubMenu.open) ? 'sidebar-link c-10 active': 'sidebar-link c-10'
           }
 
           cssClass = hasChildren ? "click-dropdown flex js-between" : "flex js-between"
-
           return (
-            <div className={cssClass} key={navItem.id}>
+            <div 
+              className={cssClass} 
+              key={navItem.id}
+            >
               <div className="sidebar-content-item c-12 flex js-between">
-                <a className="sidebar-link c-10" href={navItem.link}>
+                <a 
+                  className={activeclass}
+                  href={navItem.link}
+                >
                   <Icon iconid={navItem.iconId} text={navItem.text} />
                 </a>
-                {hasChildren && <div className="base-ic flex ali-center">
+                {hasChildren && <div 
+                                  className="base-ic flex ali-center"
+                                  data-id = {navItem.id}
+                                  onClick={handleOpenSubMemu}  
+                                >
                                   <i className="demo-icon ic-angle-down"></i>
                                 </div>
                 }
 
               </div>
-              {hasChildren && <DropDownContent links={mobileChild} />}
+              {hasChildren && <MobileMenuDropDownContent mobileChild={mobileChild} open={isOpen} />}
             </div>
           )
 
@@ -91,14 +117,3 @@ function MobileMenuContent() {
 export default MobileMenuContent = memo(MobileMenuContent)
 
 
-const DropDownContent = ({links}) => {
-  return (
-    <div className="dropdown-content flex">
-      {links.map((e,i)=>{
-        return <a href={e.link} className="c-6" key={i}>
-                {e.text}
-              </a>
-      })}
-    </div>
-  )
-}

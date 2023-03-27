@@ -303,7 +303,7 @@ export const SUB_NAVIGATIONS = [
         listLink: [
           {
             id: 1,
-            text: 'Apple (iphone)',
+            text: 'Apple (Mackbook)',
             link: '#',
             image: '',
             price: '',
@@ -546,7 +546,7 @@ export const SUB_NAVIGATIONS = [
         category: "ADS",
         order: 2,
         menuLayoutId: 3,
-        widthCssClass: 'c-6',
+        widthCssClass: 'c-12',
         mobileDisplay: false,
         listLink:[
           {
@@ -882,18 +882,18 @@ export const SUB_NAVIGATIONS = [
         listLink:[
           {
             id: 1,
-            text: 'Samsung Galaxy A14 4G',
+            text: 'iPhone 14 Pro Max 128GB',
             link: '#',
-            price: '4.490.000 ₫',
-            image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/3/3/638134385008402132_samsung-galaxy-a14-4g-dd-moi.jpg',
+            price: '27.990.000 ₫',
+            image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/31/638107858631679725_iphone-14-pro-max-dd-1.jpg',
             widthCssClass:'c-12',
           },
           {
             id: 2,
-            text: 'OPPO A57 4GB-128GB',
+            text: 'iPhone 13 128GB',
             link: '#',
-            price: '4.590.000 ₫',
-            image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/12/20/638071500758726769_oppo-a57-dd.jpg',
+            price: '17.990.000 ₫',
+            image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/1/31/638107846050335072_iphone-13-dd-1.jpg',
             widthCssClass:'c-12',
           },
         ]
@@ -910,7 +910,7 @@ export const SUB_NAVIGATIONS = [
             id: 1,
             text: '',
             link: '#',
-            image: 'https://images.fpt.shop/unsafe/fit-in/248x248/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/17/638122426805162395_F-H4_248x248@2x.png'
+            image: 'https://images.fpt.shop/unsafe/fit-in/248x248/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/3/19/638148286933953197_F-H4_248x248.png'
           },
         ]
       },
@@ -939,7 +939,230 @@ export const SUB_NAVIGATIONS = [
       },
 
     ]
-  }
+  },
+  {
+    id: 6,
+    parentId:6,
+    dropdownType : 'box',
+    menuLayouts :[
+      {
+        id: 1,
+        widthCssClass : 'c-5',
+        order: 1,
+      },
+      {
+        id: 2,
+        widthCssClass : 'c-7',
+        order: 2,
+      },
+    ],
+    childrens: [
+      {
+        id: 1,
+        category: "CÁC SẢN PHẨM PHỤ KIỆN",
+        order: 1,
+        menuLayoutId: 1,
+        widthCssClass: 'c-12',
+        mobileDisplay: true,
+        listLink: [
+          {
+            id: 1,
+            text: 'Router',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 2,
+            text: 'Bao da ốp lưng',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 3,
+            text: 'Sạc dự phòng',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 4,
+            text: 'Thẻ nhớ',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 5,
+            text: 'Phụ kiện Apple',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 6,
+            text: 'Miếng dán màn hình',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 7,
+            text: 'Loa',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 8,
+            text: 'USB - Ổ cứng',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 9,
+            text: 'Sạc cáp',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 10,
+            text: 'Tai nghe',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 11,
+            text: 'Chuột',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 12,
+            text: 'Bàn ghế gaming',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 13,
+            text: 'Balo - Túi xách',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 14,
+            text: 'TV BOX',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 15,
+            text: 'Phụ kiện khác',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 16,
+            text: 'Phụ kiện khẩu trang lọc khí',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          {
+            id: 17,
+            text: 'Bàn phím',
+            link: '#',
+            image: '',
+            price: '',
+            widthCssClass:'c-4'
+          },
+          
+        ],
+      },
+      {
+        id: 2,
+        category: "Bán chạy nhất",
+        order: 1,
+        menuLayoutId: 2,
+        widthCssClass: 'c-6',
+        mobileDisplay: false,
+        listLink:[
+          {
+            id: 1,
+            text: 'Combo Loa Bluetooth Karaoke Soundmax M22 + Mic không dây',
+            link: '#',
+            price: '1.845.000 ₫',
+            image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2022/8/23/637968458856440391_HASP-LOA-BLUETOOTH-KARAOKE-SOUNDMAX-M22-AVT.jpg',
+            widthCssClass:'c-12',
+          },
+          {
+            id: 2,
+            text: 'Pin sạc dự phòng UmeTravel 10000mAh TRIP10000 Quick Charge',
+            link: '#',
+            price: '539.000 ₫',
+            image: 'https://images.fpt.shop/unsafe/fit-in/80x80/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2020/1/14/637146111983706760_Trip10000_Black.jpg',
+            widthCssClass:'c-12',
+          },
+        ]
+      },
+      {
+        id: 3,
+        category: "ADS",
+        order: 2,
+        menuLayoutId: 2,
+        widthCssClass: 'c-6',
+        mobileDisplay: false,
+        listLink:[
+          {
+            id: 1,
+            text: '',
+            link: '#',
+            image: 'https://images.fpt.shop/unsafe/fit-in/248x248/filters:quality(90):fill(white)/fptshop.com.vn/Uploads/Originals/2023/2/1/638108094886397103_F-H4_248x248.jpg'
+          },
+        ]
+      },
+    ]
+  },
+  {
+    id: 7,
+    parentId: 10,
+    dropdownType : 'list',
+    childrens: [
+      {
+        link: "#",
+        text: "Thông  tin trao thưởng"
+      },
+      {
+        link: "#",
+        text: "Tất cả khuyến mại"
+      },
+    ]
+  },
 ]
 
 

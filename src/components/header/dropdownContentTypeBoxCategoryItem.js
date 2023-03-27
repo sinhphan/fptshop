@@ -1,12 +1,12 @@
 
 function DropdownContentTypeBoxCategoryItem({items}) {
-  console.log('DropdownContentTypeBoxCategoryItem', items);
+  // console.log('DropdownContentTypeBoxCategoryItem', items);
   return (<>
     {items.map(item=>{
       let hasImg = item.image !== ''
       let hasPrice = item.price !== ''
 
-      return (<>
+      return (
         <div
           className={item.widthCssClass}
           key={item.id}
@@ -17,7 +17,7 @@ function DropdownContentTypeBoxCategoryItem({items}) {
             {hasPrice && <span>{item.price}</span>}
           </a>
         </div>
-      </>)
+      )
     })}
   </>)
 }

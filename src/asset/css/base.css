@@ -107,6 +107,7 @@ li {
   background-color: var(--white);
   box-shadow: 0 6px 12px rgba(0,0,0,.175);
   z-index: 2;
+  flex-wrap: wrap;
 }
 
 .dropdown-content.ddtype-list {
