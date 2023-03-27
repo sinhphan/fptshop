@@ -12,14 +12,14 @@
   --gray-3: #c2c2c2;
   --product-name-hover: #0168fa;
   --btn-end-bg: #ef8573;
-  
+
   /* image background:  */
   /* --logo: url('../img/iconhd.png'); */
 }
 
 @font-face {
   font-family: header-icon;
-  src:url(../fonts/header-icon.woff) format("woff");
+  src: url(../fonts/header-icon.woff) format("woff");
   font-weight: 400;
   font-style: normal;
   font-display: block
@@ -28,7 +28,7 @@
 
 @font-face {
   font-family: Roboto;
-  src:url(../fonts/Roboto-Light.woff2) format("woff2");
+  src: url(../fonts/Roboto-Light.woff2) format("woff2");
   font-weight: 300;
   font-style: normal;
   font-display: swap
@@ -54,7 +54,7 @@
 
 @font-face {
   font-family: Roboto;
-  src:url(../fonts/Roboto-Bold.woff2) format("woff2");
+  src: url(../fonts/Roboto-Bold.woff2) format("woff2");
   font-weight: 700;
   font-style: normal;
   font-display: swap
@@ -62,7 +62,7 @@
 
 
 body {
-  font-family: Roboto,Helvetica,Arial,sans-serif;
+  font-family: Roboto, Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #000;
@@ -70,7 +70,10 @@ body {
   overflow-x: hidden
 }
 
-a,a:active,a:focus,a:hover {
+a,
+a:active,
+a:focus,
+a:hover {
   outline: 0;
   text-decoration: none;
   color: #000
@@ -98,14 +101,14 @@ li {
 }
 
 .hover-dropdown:hover .dropdown-content {
- display: block;
+  display: block;
 }
 
 .dropdown-content {
   display: none;
   position: absolute;
   background-color: var(--white);
-  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
   z-index: 2;
   flex-wrap: wrap;
 }
@@ -123,6 +126,12 @@ li {
   min-width: 200px;
 }
 
-.dropdown-content.ddtype-list a:hover{
+.dropdown-content.ddtype-list a:hover {
   color: var(--black);
+}
+
+.btn-primary {
+  color: #fff;
+  background: #cb1c22;
+  outline: 0;
 }

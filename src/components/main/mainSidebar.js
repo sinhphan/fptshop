@@ -5,7 +5,7 @@ import MainSidebarGroup from "./mainSidebarGroup"
 import '../../asset/css/main-sidebar.css'
 
 
-const attributeItems = DATA.filterModel.navFilterAttributeItem.attributeItems.filter(e => {
+const attributeItems = DATA.navFilterAttributeItem.attributeItems.filter(e => {
   return e.isShowNavFilter === true
 })
 

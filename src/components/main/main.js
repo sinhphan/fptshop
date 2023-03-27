@@ -10,7 +10,7 @@ export const FilterContext = createContext(null)
 export const FilterDispatchContext = createContext(null)
 
 function Main() {
-  const [filterProduct, dispatchFilter] = useReducer(filterReducer, DATA.filterModel.listDefault.list)
+  const [filterProduct, dispatchFilter] = useReducer(filterReducer, DATA)
   return (
     <FilterContext.Provider value={filterProduct}>
       <FilterDispatchContext.Provider value={dispatchFilter}>

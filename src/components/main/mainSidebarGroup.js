@@ -1,13 +1,25 @@
 import { DATA } from "../../asset/data/data"
 
-const specItems = DATA.filterModel.navFilterAttributeItem.specItems
+const specItems = DATA.navFilterAttributeItem.specItems
 
-function MainSidebarGroup({ attributeItem, }) {
+function MainSidebarGroup({ attributeItem }) {
   const specItemsOfThisAttr = specItems.filter(e => e.attributeID === attributeItem.id)
   return (
     <div className="main-sidebar-group">
       <h3>{attributeItem.name}</h3>
-      <div className="main-sidebar-group-options flex">
+      <div
+        className="main-sidebar-group-options flex"
+        data-query={attributeItem.nameAscii}
+      >
+        <div
+          className="c-12"
+          data-search-key=''
+          data-search-category=''
+        >
+          <input type="checkbox" value='' />
+          Tất Cả
+        </div>
+
         {specItemsOfThisAttr.map((e, i) => {
           return (
             <div

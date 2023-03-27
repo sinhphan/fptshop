@@ -4,11 +4,21 @@ import { FilterContext } from "./main"
 import Product from "./product"
 
 function Products() {
-  const listProDuct = useContext(FilterContext)
+  const productData = useContext(FilterContext)
+
   return (
     <div className="products l-9">
       <div className="product-list flex">
-        {listProDuct.map((e, id) => <Product product={e} key={id} />)}
+        {productData.listDefault.list.map((e, id) => {
+          const attributeSpecItems = productData.attributeSpecItems.filter(
+            (attr) => attr.productID == e.id
+          )
+
+          const skus = productData.promotionItems.filter(promotion => promotion.sku == e.productVariant.sku)
+
+          // console.log('Products : promotionItems ', skus);
+          return <Product product={e} key={id} attrs={attributeSpecItems} promotionItems={skus} />
+        })}
       </div>
     </div>
   )
