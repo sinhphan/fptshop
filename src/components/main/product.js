@@ -53,7 +53,7 @@ function Product({ product, attrs, promotionItems }) {
                 <span
                   key={i}
                 >
-                  <i class={attr.cssClass} ></i>
+                  <i className={attr.cssClass} ></i>
                   {attr.specName}
                 </span>
             )}
