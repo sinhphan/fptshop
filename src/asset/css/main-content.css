@@ -398,3 +398,40 @@
   background: #6c757d;
   color: #fff;
 }
+
+.checkbox.active .iconcate-checkbox:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 5px;
+  display: table;
+  width: 5px;
+  height: 11px;
+  border: 2px solid #fff;
+  border-top-width: 0;
+  border-left-width: 0;
+  -webkit-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+.checkbox.active .iconcate-checkbox {
+  border: solid 1px #cb1c22;
+  background-color: #cb1c22;
+}
+
+.checkbox .iconcate-checkbox {
+  display: inline-block;
+  vertical-align: middle;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  border: solid 1px #97a3b9;
+  background-color: #fff;
+  margin-right: 10px;
+  position: relative;
+}
+
+i {
+  font-style: italic;
+}

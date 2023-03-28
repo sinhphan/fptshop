@@ -1,8 +1,9 @@
 {
   "files": {
-    "main.css": "/fptshop/static/css/main.f5ddc8a7.css",
-    "main.js": "/fptshop/static/js/main.68e796e6.js",
+    "main.css": "/fptshop/static/css/main.9d386a75.css",
+    "main.js": "/fptshop/static/js/main.0f84991d.js",
     "static/js/787.f50706d1.chunk.js": "/fptshop/static/js/787.f50706d1.chunk.js",
+    "static/media/icomoon.woff": "/fptshop/static/media/icomoon.7461e451f4dff926ccc8.woff",
     "static/media/slider.webp": "/fptshop/static/media/slider.377c5a44871339d9ad6b.webp",
     "static/media/Roboto-Medium.woff2": "/fptshop/static/media/Roboto-Medium.fc0337b9cf1cce2e6e1e.woff2",
     "static/media/Roboto-Bold.woff2": "/fptshop/static/media/Roboto-Bold.6cd35edfbc0d7a417131.woff2",
@@ -21,12 +22,12 @@
     "static/media/brand-gigabyte.webp": "/fptshop/static/media/brand-gigabyte.9b7315787a34cf743fcf.webp",
     "static/media/brand-del.webp": "/fptshop/static/media/brand-del.cc1742aef194eb5d89da.webp",
     "index.html": "/fptshop/index.html",
-    "main.f5ddc8a7.css.map": "/fptshop/static/css/main.f5ddc8a7.css.map",
-    "main.68e796e6.js.map": "/fptshop/static/js/main.68e796e6.js.map",
+    "main.9d386a75.css.map": "/fptshop/static/css/main.9d386a75.css.map",
+    "main.0f84991d.js.map": "/fptshop/static/js/main.0f84991d.js.map",
     "787.f50706d1.chunk.js.map": "/fptshop/static/js/787.f50706d1.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f5ddc8a7.css",
-    "static/js/main.68e796e6.js"
+    "static/css/main.9d386a75.css",
+    "static/js/main.0f84991d.js"
   ]
 }
