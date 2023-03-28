@@ -14,7 +14,7 @@ function MainSidebarGroup({ attributeItem, onClick, checkedItems }) {
   const allCheckedCssClass = checkedItems.find(e => e.id === -1 && e.parentName === attributeItem.nameAscii) ?
     "c-12 checkbox active" : "c-12 checkbox"
 
-  console.log('MainSidebarGroup : allCheckedCssClass', allCheckedCssClass);
+  // console.log('MainSidebarGroup : allCheckedCssClass', allCheckedCssClass);
 
   const handleCheckItem = onClick
 

@@ -6,7 +6,7 @@ import { FilterContext } from "./main"
 
 
 function MainSidebarGroupFirst({ checkedItems, onClick, parentCategory }) {
-  console.log("MainSidebarGroupFirst : checkedItems ", checkedItems);
+  // console.log("MainSidebarGroupFirst : checkedItems ", checkedItems);
   const data = useContext(FilterContext)
   const listCategory = data.navFilter.listCategory.filter(e => e.parentID == ADMIN_SETTINGS.firstGroupOfSidebar)
 
