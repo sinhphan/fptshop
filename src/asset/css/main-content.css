@@ -222,10 +222,13 @@
 
 .product:hover .product-img img {
   transform: scale(1.03);
+
 }
 
 .product-info {
   padding-bottom: 15px;
+  background: #f8f9fa;
+  border-radius: 5px;
 }
 
 
@@ -362,6 +365,7 @@
 
 .product-btn {
   display: none;
+  margin-top: 10px;
   justify-content: space-between;
 }
 

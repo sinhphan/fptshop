@@ -3,7 +3,8 @@
 }
 
 .main-sidebar-group h3 {
-  padding-bottom: 20px;
+  padding-bottom: 15px;
+  font-size: 1.5rem;
 }
 
 .main-sidebar-group-options>div {
@@ -23,7 +24,7 @@
 
 .main-sidebar-group-options button {
   border: none;
-  background:transparent;
+  background: transparent;
   color: var(--product-name-hover);
   font-size: 1.6rem;
 }
