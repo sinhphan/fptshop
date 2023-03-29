@@ -1,5 +1,7 @@
 .slider {
   position: relative;
+  box-shadow: 0 0 3px 0 #dee2e6;
+  border-bottom-left-radius: 6px;
 }
 
 .slider-img {
@@ -48,18 +50,14 @@
   background-color: #fff;
 }
 
-.slider-nav {
-  padding: 3px;
-}
-
 .slider-nav-item {
-  max-width: 40px;
-  width: 6%;
+  width: 40px;
   margin: 0 5px;
-  border: 2px solid var(--gray-2);
+  border: 2px solid #ced4da;
   border-radius: 2px;
+  height: 3px;
 }
 
 .slider-nav-item.active {
-  border-color: var(--red);
+  border-color: #cd1817;
 }

@@ -21,6 +21,10 @@ function MainSlider() {
       <div className="slider-nav-item"></div>
       <div className="slider-nav-item"></div>
       <div className="slider-nav-item"></div>
+      <div className="slider-nav-item"></div>
+      <div className="slider-nav-item"></div>
+      <div className="slider-nav-item"></div>
+      <div className="slider-nav-item"></div>
     </div>
   </div>
   )

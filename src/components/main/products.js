@@ -7,7 +7,7 @@ function Products() {
   const productData = useContext(FilterContext)
 
   return (
-    <div className="products l-9">
+    <div className="products">
       <div className="product-list flex">
         {productData.listDefault.list.map((e, id) => {
           const attributeSpecItems = productData.attributeSpecItems.filter(
