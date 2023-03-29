@@ -53,11 +53,11 @@
 .slider-nav-item {
   width: 40px;
   margin: 0 5px;
-  border: 2px solid #ced4da;
+  background-color: #ced4da;
   border-radius: 2px;
   height: 3px;
 }
 
 .slider-nav-item.active {
-  border-color: #cd1817;
+  background-color: #cd1817;
 }

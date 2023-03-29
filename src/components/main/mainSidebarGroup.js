@@ -1,12 +1,15 @@
 import { useContext, useState } from "react"
 import { DATA } from "../../asset/data/data"
-import { FilterContext } from "./main"
+import { CheckedItemsContext, FilterContext } from "./main"
 
 
 
 
-function MainSidebarGroup({ attributeItem, onClick, checkedItems }) {
+function MainSidebarGroup({ attributeItem, onClick, order }) {
   const data = useContext(FilterContext)
+  const checkedItems = useContext(CheckedItemsContext)
+
+  // console.log('MainSidebarGroup checkedItems:', checkedItems);
 
   const specItems = data.navFilterAttributeItem.specItems
 
@@ -24,12 +27,14 @@ function MainSidebarGroup({ attributeItem, onClick, checkedItems }) {
       <div
         className="main-sidebar-group-options flex"
         data-query={attributeItem.nameAscii}
+        data-order={order}
       >
         <div
           className={allCheckedCssClass}
           style={{ order: -100 }}
           data-id={-1}
           data-search-key=''
+          data-name=''
           data-search-category=''
           onClick={handleCheckItem}
         >
@@ -49,6 +54,7 @@ function MainSidebarGroup({ attributeItem, onClick, checkedItems }) {
               key={i}
               className={itemCheckedCssClass}
               data-id={i}
+              data-name={e.name}
               data-search-key={e.nameAscii}
               data-search-category={attributeItem.nameAscii}
               onClick={handleCheckItem}

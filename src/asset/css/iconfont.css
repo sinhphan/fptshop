@@ -3153,3 +3153,7 @@
 .ic-gears:before {
   content: "\f085"
 }
+
+.icon-th-layout:before {
+  content: "\e902";
+}

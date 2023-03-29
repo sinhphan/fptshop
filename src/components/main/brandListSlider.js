@@ -1,6 +1,6 @@
 import { memo } from "react"
 import { DATA } from "../../asset/data/data"
-import { IMG_URL } from "../../config/globalConfigs"
+import { IMG_BRAND_SLIDE_URL } from "../../config/globalConfigs"
 
 const brandList = DATA.navFilter.listCategory.filter(e => e.parentID === 299)
 
@@ -14,15 +14,15 @@ function BrandListSlider() {
       </div>
       <div className="brand-list-slider flex ali-center">
         <div className="flex-nowrap">
-          {brandList.map((brand, i) => (<>
+          {brandList.map((brand, i) => (
             <a
               href="#"
               key={i}
               style={{ order: brand.order }}
             >
-              <img src={`${IMG_URL}${brand.imageCateUrl}`} alt="" />
+              <img src={`${IMG_BRAND_SLIDE_URL}${brand.imageCateUrl}`} alt="" />
             </a>
-          </>))}
+          ))}
         </div>
         <div className="slider-nav-wrap-pre hide">
           <div className="slider-pre">

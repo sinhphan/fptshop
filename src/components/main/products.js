@@ -2,12 +2,16 @@ import { memo, useContext } from "react"
 import { FilterContext } from "./main"
 
 import Product from "./product"
+import ProductsFilterNavigation from "./productsFilterNavigation"
 
 function Products() {
   const productData = useContext(FilterContext)
 
   return (
     <div className="products">
+
+      <ProductsFilterNavigation />
+
       <div className="product-list flex">
         {productData.listDefault.list.map((e, id) => {
           const attributeSpecItems = productData.attributeSpecItems.filter(

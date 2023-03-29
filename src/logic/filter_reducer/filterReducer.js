@@ -6,125 +6,277 @@ import * as CATEGORYS from "./categoryConstant";
 function filterReducer(state, action) {
   let payload = action.payload
   let newState = {}
+  payload.sort((a, b) => a.parentOrder - b.parentOrder)
 
-
+  console.log('filterReducer payload', payload);
 
   switch (action.type) {
     case ACTIONS.FILTER_ACTION:
-      let listProduct = []
-      let listProductFilter = []
-      let listAttributeSpecItemByScreenSize
+
+      let listAttributeSpecItem
       let listProductId
+      let hasFilterByCustomer = payload.filter(e => e.id > -1).length > 0
+      let filteredProducts = []
+      let listProductLast = []
 
-      payload.forEach(search => {
+      if (hasFilterByCustomer) {
+        let listProduct = [...DATA.listDefault.list]
+        let listProductTemp = []
+        let data = [...listProduct]
 
-        switch (search.parentName) {
+        let brandCheckedItems = payload.filter(e => e.parentOrder === -1)
+        let priceCheckedItems = payload.filter(e => e.parentOrder === 0)
+        let screenSizeCheckedItems = payload.filter(e => e.parentOrder === 1)
+        let cpuCheckedItems = payload.filter(e => e.parentOrder === 2)
+        let ramCheckedItems = payload.filter(e => e.parentOrder === 3)
+        let graphicCardCheckedItems = payload.filter(e => e.parentOrder === 4)
+        let ssdCheckedItems = payload.filter(e => e.parentOrder === 5)
 
-          case CATEGORYS.BRAND_CATEGORY:
-            listProductFilter = DATA.listDefault.list.filter(product =>
-              product.brandName.toLowerCase() === search.searchKey.toLowerCase()
+        if (brandCheckedItems[0].id !== -1) {
+          brandCheckedItems.forEach(e => {
+            filteredProducts = data.filter(product =>
+              product.brandName.toLowerCase() === e.searchKey.toLowerCase()
             )
-            listProduct = [...listProduct, ...listProductFilter]
-            break
-
-          case CATEGORYS.PRICE_CATEGORY:
-
-            listProductFilter = DATA.listDefault.list.filter(product =>
-              filterByPrice(search.searchKey, product.productVariant.price)
-            )
-
-            listProduct = [...listProduct, ...listProductFilter]
-            break
-
-          case CATEGORYS.SCREEN_SIZE_CATEGORY:
-            listAttributeSpecItemByScreenSize = DATA.attributeSpecItems.filter(attributeSpecItem =>
-              attributeSpecItem.attributeID === 33 &&
-              filterByScreenSize(search.searchKey, attributeSpecItem.specName)
-            )
-
-            listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
-
-            listProductFilter = DATA.listDefault.list.filter(product =>
-              listProductId.includes(product.id)
-            )
-
-            listProduct = [...listProduct, ...listProductFilter]
-            break
-
-          case CATEGORYS.CPU_CATEGORY:
-            listAttributeSpecItemByScreenSize = DATA.attributeSpecItems.filter(attributeSpecItem =>
-              attributeSpecItem.attributeID === 34 &&
-              filterByCPU(search.searchKey, attributeSpecItem.specName)
-            )
-
-            listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
-
-            listProductFilter = DATA.listDefault.list.filter(product =>
-              listProductId.includes(product.id)
-            )
-
-            listProduct = [...listProduct, ...listProductFilter]
-            break
-
-          case CATEGORYS.RAM_CATEGORY:
-            listAttributeSpecItemByScreenSize = DATA.attributeSpecItems.filter(attributeSpecItem =>
-              attributeSpecItem.attributeID === 35 &&
-              filterByRAM(search.searchKey, attributeSpecItem.specName)
-            )
-
-            listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
-
-            listProductFilter = DATA.listDefault.list.filter(product =>
-              listProductId.includes(product.id)
-            )
-
-            listProduct = [...listProduct, ...listProductFilter]
-            break
-
-          case CATEGORYS.GRAPHIC_CARD_CATEGORY:
-            listAttributeSpecItemByScreenSize = DATA.attributeSpecItems.filter(attributeSpecItem =>
-              attributeSpecItem.attributeID === 36 &&
-              filterByGraphicCard(search.searchKey, attributeSpecItem.specName)
-            )
-
-            listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
-
-            listProductFilter = DATA.listDefault.list.filter(product =>
-              listProductId.includes(product.id)
-            )
-
-            listProduct = [...listProduct, ...listProductFilter]
-            break
-
-          case CATEGORYS.SSD_CATEGORY:
-            listAttributeSpecItemByScreenSize = DATA.attributeSpecItems.filter(attributeSpecItem =>
-              attributeSpecItem.attributeID === 27 &&
-              filterBySSD(search.searchKey, attributeSpecItem.specName)
-            )
-
-            listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
-
-            listProductFilter = DATA.listDefault.list.filter(product =>
-              listProductId.includes(product.id)
-            )
-
-            listProduct = [...listProduct, ...listProductFilter]
-            break
-
-          default:
-            break
+            listProduct = [...listProduct, ...filteredProducts]
+          })
         }
 
-      }
-      )
+        data = [...listProduct]
+        if (priceCheckedItems[0].id !== -1) {
+          listProductTemp = []
+          priceCheckedItems.forEach(e => {
+            filteredProducts = data.filter(product =>
+              filterByPrice(e.searchKey, product.productVariant.price)
+            )
+            listProductTemp = [...listProductTemp, ...filteredProducts]
+          })
+          listProduct = [...listProductTemp]
+        }
 
-      listProduct = listProduct.length > 0 ? listProduct : DATA.listDefault.list
+        data = [...listProduct]
+        if (screenSizeCheckedItems[0].id !== -1) {
+          listProductTemp = []
+          screenSizeCheckedItems.forEach(e => {
+            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
+              attributeSpecItem.attributeID === 33 &&
+              filterByScreenSize(e.searchKey, attributeSpecItem.specName)
+            )
+
+            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
+
+            filteredProducts = data.filter(product =>
+              listProductId.includes(product.id)
+            )
+
+
+            listProductTemp = [...listProductTemp, ...filteredProducts]
+          })
+          listProduct = [...listProductTemp]
+        }
+
+        data = [...listProduct]
+        if (cpuCheckedItems[0].id !== -1) {
+          listProductTemp = []
+          cpuCheckedItems.forEach(e => {
+            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
+              attributeSpecItem.attributeID === 34 &&
+              filterByCPU(e.searchKey, attributeSpecItem.specName)
+            )
+
+            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
+
+            filteredProducts = data.filter(product =>
+              listProductId.includes(product.id)
+            )
+
+            listProductTemp = [...listProductTemp, ...filteredProducts]
+          })
+          listProduct = [...listProductTemp]
+        }
+
+
+        data = [...listProduct]
+        if (ramCheckedItems[0].id !== -1) {
+          listProductTemp = []
+          ramCheckedItems.forEach(e => {
+            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
+              attributeSpecItem.attributeID === 35 &&
+              filterByRAM(e.searchKey, attributeSpecItem.specName)
+            )
+
+            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
+
+            filteredProducts = data.filter(product =>
+              listProductId.includes(product.id)
+            )
+            listProductTemp = [...listProductTemp, ...filteredProducts]
+          })
+          listProduct = [...listProductTemp]
+        }
+
+
+        data = [...listProduct]
+        if (graphicCardCheckedItems[0].id !== -1) {
+          listProductTemp = []
+          graphicCardCheckedItems.forEach(e => {
+            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
+              attributeSpecItem.attributeID === 36 &&
+              filterByGraphicCard(e.searchKey, attributeSpecItem.specName)
+            )
+
+            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
+
+            filteredProducts = data.filter(product =>
+              listProductId.includes(product.id)
+            )
+            listProductTemp = [...listProductTemp, ...filteredProducts]
+          })
+          listProduct = [...listProductTemp]
+        }
+
+        data = [...listProduct]
+        if (ssdCheckedItems[0].id !== -1) {
+          listProductTemp = []
+          ssdCheckedItems.forEach(e => {
+            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
+              attributeSpecItem.attributeID === 27 &&
+              filterBySSD(e.searchKey, attributeSpecItem.specName)
+            )
+
+            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
+
+            filteredProducts = data.filter(product =>
+              listProductId.includes(product.id)
+            )
+            listProductTemp = [...listProductTemp, ...filteredProducts]
+          })
+          listProduct = [...listProductTemp]
+        }
+
+
+        listProductLast = [...listProduct]
+      } else {
+        listProductLast = DATA.listDefault.list
+      }
+
+      // console.log('filterReducer payload', hasFilterByCustomer);
+      // if (hasFilterByCustomer) {
+      //   let lastCategory = payload[0].parentName
+      //   let data = [...DATA.listDefault.list]
+      //   let listProduct = []
+      //   payload.forEach((search, i) => {
+      //     let currentCategory = search.parentName
+
+      //     switch (search.parentName) {
+      //       case CATEGORYS.BRAND_CATEGORY:
+      //         if (search.id === -1) break
+
+      //         filteredProducts = data.filter(product =>
+      //           product.brandName.toLowerCase() === search.searchKey.toLowerCase()
+      //         )
+      //         listProduct = [...listProduct, ...filteredProducts]
+      //         break
+
+      //       case CATEGORYS.PRICE_CATEGORY:
+      //         if (search.id === -1) break
+
+      //         filteredProducts = data.filter(product =>
+      //           filterByPrice(search.searchKey, product.productVariant.price)
+      //         )
+
+      //         listProduct = [...listProduct, ...filteredProducts]
+
+      //         break
+
+      //       case CATEGORYS.SCREEN_SIZE_CATEGORY:
+      //         if (search.id === -1) break
+      //         listAttributeSpecItemByScreenSize = state.attributeSpecItems.filter(attributeSpecItem =>
+      //           attributeSpecItem.attributeID === 33 &&
+      //           filterByScreenSize(search.searchKey, attributeSpecItem.specName)
+      //         )
+
+      //         listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
+
+      //         filteredProducts = data.filter(product =>
+      //           listProductId.includes(product.id)
+      //         )
+
+      //         listProduct = [...listProduct, ...filteredProducts]
+      //         break
+
+      //       case CATEGORYS.CPU_CATEGORY:
+      //         if (search.id === -1) break
+
+      //         listAttributeSpecItemByScreenSize = state.attributeSpecItems.filter(attributeSpecItem =>
+      //           attributeSpecItem.attributeID === 34 &&
+      //           filterByCPU(search.searchKey, attributeSpecItem.specName)
+      //         )
+
+      //         listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
+
+      //         filteredProducts = data.filter(product =>
+      //           listProductId.includes(product.id)
+      //         )
+
+      //         listProduct = [...listProduct, ...filteredProducts]
+      //         break
+
+      //       case CATEGORYS.RAM_CATEGORY:
+      //         if (search.id === -1) break
+
+      //         listAttributeSpecItemByScreenSize = state.attributeSpecItems.filter(attributeSpecItem =>
+      //           attributeSpecItem.attributeID === 35 &&
+      //           filterByRAM(search.searchKey, attributeSpecItem.specName)
+      //         )
+
+      //         listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
+
+      //         filteredProducts = data.filter(product =>
+      //           listProductId.includes(product.id)
+      //         )
+
+      //         listProduct = [...listProduct, ...filteredProducts]
+
+      //         break
+
+      //       case CATEGORYS.SSD_CATEGORY:
+      //         if (search.id === -1) break
+
+      //         listAttributeSpecItemByScreenSize = state.attributeSpecItems.filter(attributeSpecItem =>
+      //           attributeSpecItem.attributeID === 27 &&
+      //           filterBySSD(search.searchKey, attributeSpecItem.specName)
+      //         )
+
+      //         listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
+
+      //         filteredProducts = data.filter(product =>
+      //           listProductId.includes(product.id)
+      //         )
+
+      //         listProduct = [...listProduct, ...filteredProducts]
+      //         break
+
+      //       default:
+      //         break
+      //     }
+      //     console.log('filterReducer data 1:', i, data);
+      //     if (lastCategory !== currentCategory) {
+      //       data = [...listProduct]
+      //       console.log('filterReducer data 2:', i, data);
+      //     }
+      //     lastCategory = currentCategory
+      //   })
+
+      //   listProductLast = [...listProduct]
+      // } else {
+      //   listProductLast = DATA.listDefault.list
+      // }
 
       newState = {
         ...state,
         listDefault: {
           ...state.listDefault,
-          list: listProduct
+          list: listProductLast
         }
       }
 
