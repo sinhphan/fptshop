@@ -1,5 +1,4 @@
 export const DATA = {
-
   "dataCode": 0,
   "total": 261,
   "isApple": false,

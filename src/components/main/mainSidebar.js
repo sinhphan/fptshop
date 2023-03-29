@@ -48,7 +48,7 @@ function MainSidebar() {
 
     // if filter checked => remove it else add it to the checked list
     if (itemChecked) {
-      const removeItemFromCheckItems = checkedItems.filter(checkedItem => {
+      let removeItemFromCheckItems = checkedItems.filter(checkedItem => {
         return (checkedItem.id === currentChecked.id && checkedItem.parentName === currentChecked.parentName) ? false : true
       }
       )
