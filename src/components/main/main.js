@@ -70,7 +70,7 @@ function Main() {
           parentName: currentChecked.parentName,
           searchKey: '',
           name: '',
-          parentOrder: -1,
+          parentOrder: currentChecked.parentOrder,
         }
 
         removeItemFromCheckItems = [...removeItemFromCheckItems, initCheckedInThisCategory]

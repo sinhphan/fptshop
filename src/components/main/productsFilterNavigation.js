@@ -24,7 +24,7 @@ function ProductsFilterNavigation() {
           </div>
         </div>
         <span className="icon-th-layout active"></span>
-        <span class="icon-th-list"></span>
+        <span className="icon-th-list"></span>
       </div>
     </div>
 

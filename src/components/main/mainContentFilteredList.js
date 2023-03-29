@@ -27,14 +27,15 @@ function MainContentFilteredList() {
       </div>
       <div className="main-content-filter-list-content flex">
         <p >Lọc theo: </p>
-        {checkedItems.map((checkedItem) => {
+        {checkedItems.map((checkedItem, id) => {
 
           return checkedItem.id === -1 ?
-            (<></>) :
+            (<div key={id}></div>) :
             (<span
               className='list-filter'
               data-id={checkedItem.id}
               data-parent={checkedItem.parentOrder}
+              key={id}
             >
               {checkedItem.name}
               <i className="icon-cancel"></i>
