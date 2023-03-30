@@ -137,3 +137,34 @@ li {
   background: #cb1c22;
   outline: 0;
 }
+
+.dropdown-content.show {
+  display: block;
+  border: solid 1px #b4bdce;
+  color: #212529;
+  padding: 7px;
+  border-radius: 4px;
+}
+
+.dropdown-content.show,
+.dropdown-content li {
+  width: 100%;
+}
+
+.dropdown-content li {
+  padding-bottom: 10px;
+}
+
+.dropdown-content li:last-child {
+  padding-bottom: 0;
+}
+
+.dropdown-content li:hover {
+  padding-bottom: 10px;
+  font-weight: bold;
+  color: #000;
+}
+
+.footer img {
+  width: 100%;
+}

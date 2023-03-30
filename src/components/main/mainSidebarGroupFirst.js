@@ -41,7 +41,7 @@ function MainSidebarGroupFirst({ onClick, parentCategory, order }) {
 
         {listCategory.map((e, i) => {
           let checked = checkedItems.find(checkedItem => checkedItem.id === i && checkedItem.parentName === parentCategory[0].nameAscii)
-          let itemCheckedCssClass = checked ? "c-6 checkbox active" : "c-6 checkbox"
+          let itemCheckedCssClass = checked ? "c-6 checkbox active flex" : "c-6 checkbox flex"
 
           return (
             <div
@@ -55,7 +55,7 @@ function MainSidebarGroupFirst({ onClick, parentCategory, order }) {
               onClick={handleCheckItem}
             >
               <i className="iconcate-checkbox"></i>
-              {e.name}
+              <p>{e.name}</p>
             </div>
           )
         })}

@@ -9,6 +9,19 @@
 
 .main-sidebar-group-options>div {
   padding-bottom: 12px;
+
+}
+
+.main-sidebar-group-options>div i {
+  display: inline-block;
+  width: 26px;
+}
+
+.main-sidebar-group-options>div p {
+  display: inline-block;
+  padding-right: 6px;
+  overflow-wrap: break-word;
+  width: min-content;
 }
 
 .main-sidebar-group-options input {

@@ -6,7 +6,7 @@ import * as CATEGORYS from "./categoryConstant";
 function filterReducer(state, action) {
   let payload = action.payload
   let newState = {}
-  payload.sort((a, b) => a.parentOrder - b.parentOrder)
+  let filteredProducts = []
 
   console.log('filterReducer payload', payload);
 
@@ -16,8 +16,10 @@ function filterReducer(state, action) {
       let listAttributeSpecItem
       let listProductId
       let hasFilterByCustomer = payload.filter(e => e.id > -1).length > 0
-      let filteredProducts = []
       let listProductLast = []
+
+
+      payload.sort((a, b) => a.parentOrder - b.parentOrder)
 
       if (hasFilterByCustomer) {
         let listProduct = [...DATA.listDefault.list]
@@ -33,13 +35,17 @@ function filterReducer(state, action) {
         let ssdCheckedItems = payload.filter(e => e.parentOrder === 5)
 
         if (brandCheckedItems[0].id !== -1) {
+          listProductTemp = []
           brandCheckedItems.forEach(e => {
             filteredProducts = data.filter(product =>
               product.brandName.toLowerCase() === e.searchKey.toLowerCase()
             )
-            listProduct = [...listProduct, ...filteredProducts]
+            listProductTemp = [...listProductTemp, ...filteredProducts]
           })
+          listProduct = [...listProductTemp]
         }
+
+        // console.log('filterReducer : listproduct', listProduct);
 
         data = [...listProduct]
         if (priceCheckedItems[0].id !== -1) {
@@ -282,6 +288,46 @@ function filterReducer(state, action) {
 
       console.log('filterReducer: newState : ', newState);
       return newState
+
+    case ACTIONS.BEST_SELLING_FILTER_ACTION:
+      state.listDefault.list.sort((a, b) => {
+        return a.productVariant.stockQuantity - b.productVariant.stockQuantity
+      })
+      newState = { ...state }
+      return state
+
+    case ACTIONS.LOW_PRICE_FILTER_ACTION:
+      state.listDefault.list.sort((a, b) => {
+        return a.productVariant.price - b.productVariant.price
+      })
+      newState = { ...state }
+
+      return newState
+
+    case ACTIONS.HIGH_PRICE_FILTER_ACTION:
+      state.listDefault.list.sort((a, b) => {
+        return b.productVariant.price - a.productVariant.price
+      })
+
+      newState = { ...state }
+
+      return newState
+
+    case ACTIONS.ZERO_PERCENT_PAYMENT_FILTER_ACTION:
+      filteredProducts = state.listDefault.list.filter(product => product.labelInst === "Trả góp 0%")
+
+      newState = {
+        ...state,
+        listDefault: {
+          ...state.listDefault,
+          list: filteredProducts
+        }
+      }
+
+      return newState
+    case ACTIONS.ONLINE_OFFER_FILTER_ACTION:
+      return DATA
+
     default:
       break
   }

@@ -1,6 +1,7 @@
 import { memo, createContext, useReducer, useState, useEffect, useMemo } from "react"
 import { DATA } from "../../asset/data/data"
 import { ADMIN_SETTINGS } from "../../config/adminSettings"
+import { createInitCheckedItems } from "../../config/createInitCheckedItems"
 import { filterAction } from "../../logic/filter_reducer/actions"
 import filterReducer from "../../logic/filter_reducer/filterReducer"
 import BreadCrum from "./breadCrum"
@@ -21,19 +22,18 @@ function Main() {
     return e.isShowNavFilter === true
   })
 
-  const initCheckedItems = [{
-    id: -1,
-    parentName: parentCategory[0].nameAscii,
-    searchKey: '',
-    name: '',
-    parentOrder: -1,
-  }]
+  let initCheckedItems = []
+  useMemo(() => {
+    initCheckedItems = createInitCheckedItems()
+  }, [])
 
   const [filterProduct, dispatchFilter] = useReducer(filterReducer, DATA)
   let [checkedItems, setCheckedItems] = useState(initCheckedItems)
 
 
   const handleCheckItem = e => {
+
+    window.scrollTo({ top: 440, behavior: 'smooth' })
 
     const currentChecked = {
       id: +e.currentTarget.dataset.id,
@@ -94,21 +94,6 @@ function Main() {
 
   useEffect(() => dispatchFilter(filterAction(checkedItems)), [checkedItems])
 
-  useMemo(() => {
-    attributeItems.forEach((e, i) => {
-      initCheckedItems.push({
-        id: -1,
-        parentName: e.nameAscii,
-        searchKey: '',
-        name: '',
-        parentOrder: i,
-      })
-    })
-  }, [])
-
-  useEffect(() => {
-    setCheckedItems(initCheckedItems)
-  }, [])
 
   // console.log(('main', checkedItems));
   return (
