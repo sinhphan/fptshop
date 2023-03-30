@@ -246,6 +246,7 @@
   padding: 15px;
   position: relative;
   width: 100%;
+  background-color: #fff;
 }
 
 .product:hover {
@@ -279,10 +280,18 @@
 
 }
 
+.product-list>div:last-child {
+  min-height: 625px;
+}
+
 .product-info {
   padding-bottom: 15px;
   background: #f8f9fa;
   border-radius: 5px;
+}
+
+.product-promo {
+  padding: 0 10px;
 }
 
 

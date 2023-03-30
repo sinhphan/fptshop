@@ -291,10 +291,11 @@ function filterReducer(state, action) {
 
     case ACTIONS.BEST_SELLING_FILTER_ACTION:
       state.listDefault.list.sort((a, b) => {
-        return a.productVariant.stockQuantity - b.productVariant.stockQuantity
+        // console.log(b.productVariant.stockQuantity - a.productVariant.stockQuantity);
+        return b.productVariant.stockQuantity - a.productVariant.stockQuantity
       })
       newState = { ...state }
-      return state
+      return newState
 
     case ACTIONS.LOW_PRICE_FILTER_ACTION:
       state.listDefault.list.sort((a, b) => {

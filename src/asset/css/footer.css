@@ -89,8 +89,16 @@
 }
 
 .footer-link .link-image {
-  max-width: 142px;
+  max-width: 148px;
   margin-bottom: 17px;
+}
+
+.footer-link .link-image .lc {
+  width: 127px;
+}
+
+.footer-link .link-image .fcare {
+  width: 120px;
 }
 
 .footer-copyright {

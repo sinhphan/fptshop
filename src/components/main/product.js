@@ -3,13 +3,15 @@ import { IMG_URL } from "../../config/globalConfigs"
 import { vndConvert } from "../../logic/global"
 import ProductPromotion from "./productPromotion"
 
-function Product({ product, attrs, promotionItems }) {
+function Product({ product, attrs, promotionItems, isGridDisplay }) {
 
   const progress = product.productVariant.price * 100 / product.productVariant.priceMarket
 
+  let gridCss = isGridDisplay ? 'l-4 relative' : 'l-12 flex'
+
   return (
-    <div className="l-4 relative">
-      <div className="product">
+    <div className={gridCss}>
+      <div className="product l-12 flex">
         <div className="product-img flex">
           <a href="#">
             <img src={`${IMG_URL}${product.urlPicture}`} />

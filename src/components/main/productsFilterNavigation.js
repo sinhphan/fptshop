@@ -27,13 +27,17 @@ const listFilterProps = [
 ]
 
 
-function ProductsFilterNavigation() {
+function ProductsFilterNavigation({ gridBtnOnClick, listBtnOnClick, isGridDisplay }) {
+
   const filterDispatch = useContext(FilterDispatchContext)
   const data = useContext(FilterContext)
   const [filterActive, setFilterActive] = useState(0)
   const dropdownContent = useRef()
 
   let rightFilterText = listFilterProps[filterActive].name
+
+  let gridBtnCss = isGridDisplay ? "icon-th-layout active" : "icon-th-layout"
+  let listBtnCss = isGridDisplay ? "icon-th-list" : "icon-th-list active"
 
   const handleChoseFilter = (e) => {
     let id = +e.currentTarget.dataset.id
@@ -43,7 +47,7 @@ function ProductsFilterNavigation() {
 
   const handleDropdowmClick = (e) => {
     dropdownContent.current.classList.toggle('show')
-    console.log('handleDropdowmClick', dropdownContent);
+    // console.log('handleDropdowmClick', dropdownContent);
   }
 
 
@@ -95,8 +99,14 @@ function ProductsFilterNavigation() {
             </ul>
           </div>
         </div>
-        <span className="icon-th-layout active"></span>
-        <span className="icon-th-list"></span>
+        <span
+          className={gridBtnCss}
+          onClick={gridBtnOnClick}
+        ></span>
+        <span
+          className={listBtnCss}
+          onClick={listBtnOnClick}
+        ></span>
       </div>
     </div>
 
