@@ -8,12 +8,9 @@ import MainContentFilteredList from "./MainContentFilteredList";
 
 function MainContent() {
   let checkedItems = useContext(CheckedItemsContext)
-
   const hasCustomerFilters = checkedItems.some(e => e.id !== -1)
-
   let mainHeaderCss = hasCustomerFilters ? 'hide' : ''
   let filteredListCss = hasCustomerFilters ? '' : 'hide'
-
 
   return (
     <div className="l-9">

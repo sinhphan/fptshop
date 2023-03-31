@@ -6,10 +6,8 @@ import TopNavigationLink from "./TopNavigationLink"
 const TOP_NAVMOBILE = ADMIN_SETTINGS.topNavMobile
 
 function TopNavigation() {
-  // console.log('TopNavigation re-render');
 
   return (<>
-    {/* Top navigatiion */}
     <div className="col lx-5 l-5 only-pc">
       <div className="top-nav-link-pc">
         <div className="flex js-between">
@@ -17,9 +15,7 @@ function TopNavigation() {
         </div>
       </div>
     </div>
-    {/* end Top navigatiion */}
 
-    {/* user mobile  */}
     <div className="top-nav-link-mobile c-4 flex ali-center js-end only-mobile">
       <a href={`tel:${TOP_NAVMOBILE.phone}`}>
         <div className="phone">
@@ -35,7 +31,6 @@ function TopNavigation() {
         </div>
       </a>
     </div>
-    {/* end user mobile  */}
   </>)
 }
 

@@ -2,18 +2,17 @@ import { memo, useState } from "react"
 
 import { ADMIN_SETTINGS, SUB_NAVIGATIONS } from "../../../config"
 import Icon from "../../global/Icon"
-
 import MobileMenuDropDownContent from "./MobileMenuDropDownContent"
 
 const mainNav = ADMIN_SETTINGS.mainNav
 
 function MobileMenuContent() {
-  // console.log('MobileMenuContent re-render');
   const [openSubMenu, setOpenSubMenu] = useState({ id: 0, open: false })
 
   const handleOpenSubMemu = (e) => {
     let id = +e.currentTarget.dataset.id
-    let open = openSubMenu.id === id ? !openSubMenu.open : true;
+    let menuIsOpened = openSubMenu.id === id
+    let open = menuIsOpened ? !openSubMenu.open : true;
     const newOpenSubMenu = {
       id: id,
       open: open
@@ -22,10 +21,7 @@ function MobileMenuContent() {
     setOpenSubMenu(newOpenSubMenu)
   }
 
-  // console.log(openSubMenu);
-
   return (<>
-    {/* main sidebar  */}
     <div className="sidebar-content">
       <div className="sidebar-content-group">
         <div className="sidebar-content-item">
@@ -54,6 +50,7 @@ function MobileMenuContent() {
           }
 
           cssClass = hasChildren ? "click-dropdown flex js-between" : "flex js-between"
+
           return (
             <div
               className={cssClass}
@@ -66,21 +63,20 @@ function MobileMenuContent() {
                 >
                   <Icon iconid={navItem.iconId} text={navItem.text} />
                 </a>
-                {hasChildren && <div
-                  className="base-ic flex ali-center"
-                  data-id={navItem.id}
-                  onClick={handleOpenSubMemu}
-                >
-                  <i className="demo-icon ic-angle-down"></i>
-                </div>
+                {hasChildren &&
+                  <div
+                    className="base-ic flex ali-center"
+                    data-id={navItem.id}
+                    onClick={handleOpenSubMemu}
+                  >
+                    <i className="demo-icon ic-angle-down"></i>
+                  </div>
                 }
 
               </div>
               {hasChildren && <MobileMenuDropDownContent mobileChild={mobileChild} open={isOpen} />}
             </div>
           )
-
-
         })}
 
       </div>
@@ -110,7 +106,6 @@ function MobileMenuContent() {
         </div>
       </div>
     </div>
-    {/* end main sidebar  */}
   </>)
 }
 

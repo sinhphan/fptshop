@@ -1,21 +1,16 @@
-import { memo, useContext, useEffect, useState } from "react"
-import { DATA } from "../../../asset/data/data"
+import { memo, useContext } from "react"
 import { ADMIN_SETTINGS } from "../../../config/adminSettings"
 import { CheckedItemsContext, FilterContext } from "../Main"
 
-
-
 function MainSidebarGroupFirst({ onClick, parentCategory, order }) {
-  // console.log("MainSidebarGroupFirst : checkedItems ", checkedItems);
   const data = useContext(FilterContext)
   const checkedItems = useContext(CheckedItemsContext)
-  const listCategory = data.navFilter.listCategory.filter(e => e.parentID == ADMIN_SETTINGS.firstGroupOfSidebar)
+  const items = data.navFilter.listCategory.filter(e => e.parentID == ADMIN_SETTINGS.firstGroupOfSidebar)
 
-  const allCheckedCssClass = checkedItems.find(e => e.id === -1 && e.parentName === parentCategory[0].nameAscii) ? "c-6 checkbox active" : "c-6 checkbox"
+  let isAllChecked = checkedItem => checkedItem.id === -1 && checkedItem.parentName === parentCategory[0].nameAscii
+  const allCheckedCssClass = checkedItems.find(isAllChecked) ? "c-6 checkbox active" : "c-6 checkbox"
 
   const handleCheckItem = onClick
-
-
 
   return (
     <div className="main-sidebar-group">
@@ -39,23 +34,25 @@ function MainSidebarGroupFirst({ onClick, parentCategory, order }) {
           Tất Cả
         </div>
 
-        {listCategory.map((e, i) => {
-          let checked = checkedItems.find(checkedItem => checkedItem.id === i && checkedItem.parentName === parentCategory[0].nameAscii)
+        {items.map((item, i) => {
+          let isChecked = checkedItem => checkedItem.id === i &&
+            checkedItem.parentName === parentCategory[0].nameAscii
+          let checked = checkedItems.find(isChecked)
           let itemCheckedCssClass = checked ? "c-6 checkbox active flex" : "c-6 checkbox flex"
 
           return (
             <div
               key={i}
               className={itemCheckedCssClass}
-              style={{ order: e.order }}
+              style={{ order: item.order }}
               data-id={i}
-              data-name={e.name}
-              data-search-key={e.name}
+              data-name={item.name}
+              data-search-key={item.name}
               data-search-category={parentCategory[0].nameAscii}
               onClick={handleCheckItem}
             >
               <i className="iconcate-checkbox"></i>
-              <p>{e.name}</p>
+              <p>{item.name}</p>
             </div>
           )
         })}

@@ -3,9 +3,6 @@ import { Logo } from "../../global"
 import MobileMenuContent from "./MobileMenuContent"
 
 function MobileMenu({ open, closeMenu }) {
-  // console.log('MobileMenu re-render');
-
-
   const handleStopCloseMenu = e => { e.stopPropagation() }
 
   return (
@@ -34,7 +31,6 @@ function MobileMenu({ open, closeMenu }) {
 
           <div className="sidebar-footer"></div>
         </div>
-        {/* end sidebar ads  */}
       </div>
     </>
   )

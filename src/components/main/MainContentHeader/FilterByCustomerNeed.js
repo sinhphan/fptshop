@@ -5,8 +5,6 @@ import { IMG_CUSTOMER_NEED_THUMB } from "../../../config/globalConfigs"
 const listFilterByCustomer = DATA.navFilterAttributeItem.specItems.filter(e => e.attributeID === 133)
 
 function FilterByCustomerNeed() {
-
-
   return (
     <div className="filter main-content-wrap">
       <h3>Laptop theo nhu cầu</h3>
@@ -23,10 +21,8 @@ function FilterByCustomerNeed() {
             </div>
           )
         })}
-
       </div>
     </div>
-
   )
 }
 

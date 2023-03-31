@@ -8,10 +8,13 @@ function MainContentFilteredList() {
   let setCheckedItems = useContext(SetCheckedItemsContext)
 
   let productQuantity = filteredProducts.listDefault.list.length
+  let isBrandCategory = checkedItem => checkedItem.id !== -1 && checkedItem.parentOrder === -1
+  let isPriceCategory = checkedItem => checkedItem.id !== -1 && checkedItem.parentOrder === 0
+  let isScreenSizeCategory = checkedItem => checkedItem.id !== -1 && checkedItem.parentOrder === 1
 
-  let listBrand = checkedItems.filter(e => e.id != -1 && e.parentOrder === -1)
-  let listPrice = checkedItems.filter(e => e.id != -1 && e.parentOrder === 0)
-  let listScreenSize = checkedItems.filter(e => e.id != -1 && e.parentOrder === 1)
+  let listBrand = checkedItems.filter(isBrandCategory)
+  let listPrice = checkedItems.filter(isPriceCategory)
+  let listScreenSize = checkedItems.filter(isScreenSizeCategory)
 
   let brandName = listBrand.length === 1 ? listBrand[0].name : ''
   let price = listPrice.length === 1 ? listPrice[0].name : ''
@@ -27,14 +30,13 @@ function MainContentFilteredList() {
     if (listDataset.type === 'all') {
       setCheckedItems(initCheckedItems)
     } else {
-      let newCheckedItems = checkedItems.filter(e => {
-        return (e.id === +listDataset.id && e.parentOrder === +listDataset.parentOrder) ? false : true
-      })
+      let isNotDeleteCheckedItem = e => !(e.id === +listDataset.id && e.parentOrder === +listDataset.parentOrder)
+      let newCheckedItems = checkedItems.filter(isNotDeleteCheckedItem)
+      let parentOfDeletedHasChildren = newCheckedItems.filter(e =>
+        e.parentOrder === +listDataset.parentOrder
+      ).length > 0
 
-      let parentOfDeletedHasChildren = newCheckedItems.filter(e => e.parentOrder === +listDataset.parentOrder).length === 0
-
-
-      if (parentOfDeletedHasChildren) {
+      if (!parentOfDeletedHasChildren) {
         let initCheckedItemOfthisParent = {
           id: -1,
           parentName: listDataset.parentName,
@@ -42,17 +44,11 @@ function MainContentFilteredList() {
           name: '',
           parentOrder: +listDataset.parentOrder,
         }
-
         newCheckedItems.push(initCheckedItemOfthisParent)
       }
-
-      console.log('newCheckedItems', newCheckedItems);
-
       setCheckedItems(newCheckedItems)
-
     }
   }
-
 
   return (
     <div className="main-content-filter-list" id='products'>
@@ -65,7 +61,6 @@ function MainContentFilteredList() {
       <div className="main-content-filter-list-content flex">
         <p >Lọc theo: </p>
         {userCheckedItems.map((checkedItem, id) => {
-
           return (
             <span
               className='list-filter'
@@ -96,6 +91,5 @@ function MainContentFilteredList() {
     </div>
   )
 }
-
 
 export default MainContentFilteredList = memo(MainContentFilteredList)

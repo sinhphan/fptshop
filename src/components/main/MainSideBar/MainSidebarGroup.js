@@ -1,23 +1,20 @@
-import { useContext, useState } from "react"
-import { DATA } from "../../../asset/data/data"
+import { memo, useContext, useState } from "react"
 import { CheckedItemsContext, FilterContext } from "../Main"
 
 
 
 
-function MainSidebarGroup({ attributeItem, onClick, order }) {
+function MainSidebarGroup({ attributeItem, onClick, categoryOrder }) {
   const data = useContext(FilterContext)
   const checkedItems = useContext(CheckedItemsContext)
 
-  // console.log('MainSidebarGroup checkedItems:', checkedItems);
-
   const specItems = data.navFilterAttributeItem.specItems
 
+  let isAllChecked = checkedItem => checkedItem.id === -1 && checkedItem.parentName === attributeItem.nameAscii
   const specItemsOfThisAttr = specItems.filter(e => e.attributeID === attributeItem.id)
-  const allCheckedCssClass = checkedItems.find(e => e.id === -1 && e.parentName === attributeItem.nameAscii) ?
+  const allCheckedCssClass = checkedItems.find(isAllChecked) ?
     "c-12 checkbox active" : "c-12 checkbox"
 
-  // console.log('MainSidebarGroup : allCheckedCssClass', allCheckedCssClass);
 
   const handleCheckItem = onClick
 
@@ -27,7 +24,7 @@ function MainSidebarGroup({ attributeItem, onClick, order }) {
       <div
         className="main-sidebar-group-options flex"
         data-query={attributeItem.nameAscii}
-        data-order={order}
+        data-order={categoryOrder}
       >
         <div
           className={allCheckedCssClass}
@@ -38,15 +35,13 @@ function MainSidebarGroup({ attributeItem, onClick, order }) {
           data-search-category=''
           onClick={handleCheckItem}
         >
-
           <i className="iconcate-checkbox"></i>
           Tất Cả
-
         </div>
 
         {specItemsOfThisAttr.map((e, i) => {
-
-          let checked = checkedItems.find(checkedItem => checkedItem.id === i && checkedItem.parentName === attributeItem.nameAscii)
+          let isChecked = checkedItem => checkedItem.id === i && checkedItem.parentName === attributeItem.nameAscii
+          let checked = checkedItems.find(isChecked)
           let itemCheckedCssClass = checked ? "c-12 checkbox active" : "c-12 checkbox"
 
           return (
@@ -69,4 +64,4 @@ function MainSidebarGroup({ attributeItem, onClick, order }) {
   )
 }
 
-export default MainSidebarGroup
+export default MainSidebarGroup = memo(MainSidebarGroup)

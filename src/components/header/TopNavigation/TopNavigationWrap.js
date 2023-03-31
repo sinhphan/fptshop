@@ -1,18 +1,17 @@
-import { useState } from "react"
+import { memo, useCallback, useState } from "react"
 
 import HeaderLogo from "./HeaderLogo"
 import HeaderSearchFormPC from "./HeaderSearchFormPC"
 import MobileMenu from "../MobileMenu/MobileMenu"
 import TopNavigation from "./TopNavigation"
 
-
 function TopNavigationWrap() {
   const [openMobileMenu, setOpenMobileMenu] = useState(false)
 
-
-  const handleOpenMobileMenu = () => { setOpenMobileMenu(!openMobileMenu) }
-
-
+  const handleOpenMobileMenu = useCallback(() => {
+    setOpenMobileMenu(!openMobileMenu)
+  },
+    [openMobileMenu])
 
   return (<>
     <div className="top-nav">
@@ -27,10 +26,10 @@ function TopNavigationWrap() {
 
             <TopNavigation />
 
-            {/* search form in mobile  */}
             <div className="col c-12 only-mobile">
               <HeaderSearchFormPC />
             </div>
+
             <MobileMenu open={openMobileMenu} closeMenu={handleOpenMobileMenu} />
           </div>
         </div>
@@ -39,4 +38,4 @@ function TopNavigationWrap() {
   </>)
 }
 
-export default TopNavigationWrap
+export default TopNavigationWrap = memo(TopNavigationWrap)

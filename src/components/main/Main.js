@@ -1,4 +1,4 @@
-import { memo, createContext, useReducer, useState, useEffect, useMemo } from "react"
+import { memo, createContext, useReducer, useState, useEffect, useMemo, useCallback } from "react"
 import { DATA } from "../../asset/data/data"
 import { ADMIN_SETTINGS } from "../../config/adminSettings"
 import { createInitCheckedItems } from "../../config/createInitCheckedItems"
@@ -31,10 +31,8 @@ function Main() {
   let [checkedItems, setCheckedItems] = useState(initCheckedItems)
 
 
-  const handleCheckItem = e => {
-
+  const handleCheckItem = useCallback(e => {
     window.scrollTo({ top: 440, behavior: 'smooth' })
-
     const currentChecked = {
       id: +e.currentTarget.dataset.id,
       parentName: e.currentTarget.parentNode.dataset.query,
@@ -45,26 +43,27 @@ function Main() {
 
     // if checking to all checkbox then remove all checked items of this category (parent)
     if (currentChecked.id === -1) {
-      let newCheckedItems = checkedItems.filter(e => e.parentName !== currentChecked.parentName)
+      let isChildOfAnotherCategory = e => e.parentName !== currentChecked.parentName
+      let newCheckedItems = checkedItems.filter(isChildOfAnotherCategory)
       checkedItems = [...newCheckedItems, currentChecked]
 
       return setCheckedItems(checkedItems)
     }
 
-    let itemChecked = checkedItems.find(checkedItem => checkedItem.id == currentChecked.id && checkedItem.parentName === currentChecked.parentName)
-
+    let isItemChecked = checkedItem => checkedItem.id == currentChecked.id &&
+      checkedItem.parentName === currentChecked.parentName
+    let itemChecked = checkedItems.find(isItemChecked)
     // if filter checked => remove it else add it to the checked list
     if (itemChecked) {
-      let removeItemFromCheckItems = checkedItems.filter(checkedItem => {
-        return (checkedItem.id === currentChecked.id && checkedItem.parentName === currentChecked.parentName) ? false : true
-      }
-      )
+      let isAnotherItems = checkedItem => !(checkedItem.id === currentChecked.id &&
+        checkedItem.parentName === currentChecked.parentName)
+      let removeItemFromCheckItems = checkedItems.filter(isAnotherItems)
 
       setCheckedItems(checkedItems => removeItemFromCheckItems)
 
       // if this category no checkbox cheked then add init value of this category to the checked list
-      let hasCheckedItem = removeItemFromCheckItems.filter(e => e.parentName === currentChecked.parentName).length === 0
-      if (hasCheckedItem) {
+      let hasCheckedItems = removeItemFromCheckItems.filter(e => e.parentName === currentChecked.parentName).length > 0
+      if (!hasCheckedItems) {
         let initCheckedInThisCategory = {
           id: -1,
           parentName: currentChecked.parentName,
@@ -78,24 +77,18 @@ function Main() {
       }
 
     } else {
-
-      // remove init checked list of this category
-      let removedInitCheckedItem = checkedItems.filter(checkedItem => {
-        return (checkedItem.id === -1 && checkedItem.parentName == currentChecked.parentName) ? false : true
-      })
-
+      // remove init checked item of this category
+      let isInitCheckedItem = checkedItem => !(checkedItem.id === -1 &&
+        checkedItem.parentName == currentChecked.parentName)
+      let removedInitCheckedItem = checkedItems.filter(isInitCheckedItem)
       // add new checked list ofthis category
       setCheckedItems(checkedItems => [...removedInitCheckedItem, currentChecked])
-
     }
-
-  }
-
+  },
+    [checkedItems])
 
   useEffect(() => dispatchFilter(filterAction(checkedItems)), [checkedItems])
 
-
-  // console.log(('main', checkedItems));
   return (
     <FilterContext.Provider value={filterProduct}>
       <FilterDispatchContext.Provider value={dispatchFilter}>

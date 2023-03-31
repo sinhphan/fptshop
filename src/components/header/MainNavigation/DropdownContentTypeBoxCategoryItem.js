@@ -1,8 +1,8 @@
+import { memo } from "react"
 
-function DropdownContentTypeBoxCategoryItem({items}) {
-  // console.log('DropdownContentTypeBoxCategoryItem', items);
+function DropdownContentTypeBoxCategoryItem({ items }) {
   return (<>
-    {items.map(item=>{
+    {items.map(item => {
       let hasImg = item.image !== ''
       let hasPrice = item.price !== ''
 
@@ -12,7 +12,7 @@ function DropdownContentTypeBoxCategoryItem({items}) {
           key={item.id}
         >
           <a href={item.link}>
-            {hasImg && <img src={item.image}/>}
+            {hasImg && <img src={item.image} />}
             {item.text}
             {hasPrice && <span>{item.price}</span>}
           </a>
@@ -23,4 +23,4 @@ function DropdownContentTypeBoxCategoryItem({items}) {
 }
 
 
-export default DropdownContentTypeBoxCategoryItem
+export default DropdownContentTypeBoxCategoryItem = memo(DropdownContentTypeBoxCategoryItem)

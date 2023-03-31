@@ -10,16 +10,13 @@ function Products() {
   const productData = useContext(FilterContext)
   const [isGridDisplay, setGridDisplay] = useState(true)
 
-
   const handleGridButtonClick = useCallback(() => setGridDisplay(true), [isGridDisplay])
-
-  const handleListButtonClick = useCallback(() => setGridDisplay(false), isGridDisplay)
+  const handleListButtonClick = useCallback(() => setGridDisplay(false), [isGridDisplay])
 
   const totolProuctsFiltered = productData.listDefault.list.length
 
   return (
     <div className="products">
-
       {totolProuctsFiltered !== 0 &&
         <ProductsFilterNavigation
           gridBtnOnClick={handleGridButtonClick}
@@ -29,10 +26,8 @@ function Products() {
       }
 
       {totolProuctsFiltered !== 0 &&
-
         (<div className="product-list flex">
           {productData.listDefault.list.map((e, id) => {
-
             // get list attributes specifie item by product id
             const attributeSpecItems = productData.attributeSpecItems.filter(
               (attr) => attr.productID == e.id
@@ -40,7 +35,6 @@ function Products() {
 
             const skus = productData.promotionItems.filter(promotion => promotion.sku == e.productVariant.sku)
 
-            // console.log('Products : promotionItems ', skus);
             return <Product
               product={e}
               key={id}
@@ -53,9 +47,6 @@ function Products() {
       }
 
       {totolProuctsFiltered === 0 && <ProductNotFound />}
-
-      <div className="c-12"></div>
-
       {totolProuctsFiltered >= 27 && <ViewMoreButton />}
     </div>
   )

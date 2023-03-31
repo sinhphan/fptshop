@@ -1,10 +1,10 @@
 import { memo } from "react"
+
 import { IMG_URL } from "../../../config/globalConfigs"
 import { vndConvert } from "../../../logic/global"
 import ProductPromotion from "./ProductPromotion"
 
 function Product({ product, attrs, promotionItems, isGridDisplay }) {
-
   const progress = product.productVariant.price * 100 / product.productVariant.priceMarket
 
   let gridCss = isGridDisplay ? 'l-4 relative' : 'l-12 flex'
@@ -12,7 +12,6 @@ function Product({ product, attrs, promotionItems, isGridDisplay }) {
   let productImgCss = isGridDisplay ? "product-img flex" : "product-img flex l-4"
   let productPriceCss = isGridDisplay ? "product-price" : "product-price l-4"
   let productShowPromoCss = isGridDisplay ? "product-show-promo flex js-between" : "product-show-promo "
-
 
   return (
     <div className={gridCss}>
@@ -36,14 +35,13 @@ function Product({ product, attrs, promotionItems, isGridDisplay }) {
           <div className={productShowPromoCss}>
             <div className="progress-bar" >
               {vndConvert(product.productVariant.price)} ₫
-
               <div
                 className="progress"
                 style={{ width: `${progress}%` }}
               >
-
               </div>
             </div>
+
             <div className="strike-price">
               <div className="strike">
                 {vndConvert(product.productVariant.priceMarket)} ₫
@@ -80,7 +78,6 @@ function Product({ product, attrs, promotionItems, isGridDisplay }) {
 }
 
 export default Product = memo(Product)
-
 
 const ProductSaleBag = memo(({ product, isGridDisplay }) => {
   let productSaleCss = isGridDisplay ? "product-sale flex" : "product-sale"

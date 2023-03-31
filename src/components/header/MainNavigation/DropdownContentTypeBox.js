@@ -1,3 +1,4 @@
+import { memo } from "react"
 import DropdownContentTypeBoxCategory from "./DropdownContentTypeBoxCategory"
 
 function DropdownContentTypeBox({ dropdownContent }) {
@@ -29,4 +30,4 @@ function DropdownContentTypeBox({ dropdownContent }) {
   )
 }
 
-export default DropdownContentTypeBox
+export default DropdownContentTypeBox = memo(DropdownContentTypeBox)

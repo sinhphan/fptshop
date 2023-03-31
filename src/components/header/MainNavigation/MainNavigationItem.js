@@ -1,3 +1,4 @@
+import { memo } from "react"
 import { Icon } from "../../global"
 import MainNavDropdownContent from "./MainNavDropdownContent"
 
@@ -21,4 +22,4 @@ function MainNavigationItem({ childrens, navItem }) {
   </>)
 }
 
-export default MainNavigationItem
+export default MainNavigationItem = memo(MainNavigationItem)

@@ -1,4 +1,6 @@
-function DropdownContentTypeList({ subNav }){
+import { memo } from "react"
+
+function DropdownContentTypeList({ subNav }) {
   return (<>
     <div className="dropdown-content ddtype-list">
       {subNav.map(
@@ -14,4 +16,4 @@ function DropdownContentTypeList({ subNav }){
   </>)
 }
 
-export default DropdownContentTypeList
+export default DropdownContentTypeList = memo(DropdownContentTypeList)

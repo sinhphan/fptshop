@@ -23,7 +23,7 @@ function MainSidebar({ parentCategory, attributeItems, onClick }) {
             attributeItem={e}
             onClick={handleCheckItem}
             key={id}
-            order={id}
+            categoryOrder={id}
           />
         })}
       </div>

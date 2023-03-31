@@ -29,28 +29,25 @@ const listFilterProps = [
 
 
 function ProductsFilterNavigation({ gridBtnOnClick, listBtnOnClick, isGridDisplay }) {
-
   const filterDispatch = useContext(FilterDispatchContext)
   const data = useContext(FilterContext)
-  const [filterActive, setFilterActive] = useState(0)
+  const [filterActiveId, setFilterActiveId] = useState(0)
   const dropdownContent = useRef()
 
-  let rightFilterText = listFilterProps[filterActive].name
+  let rightFilterText = listFilterProps[filterActiveId].name
 
   let gridBtnCss = isGridDisplay ? "icon-th-layout active" : "icon-th-layout"
   let listBtnCss = isGridDisplay ? "icon-th-list" : "icon-th-list active"
 
   const handleChoseFilter = (e) => {
     let id = +e.currentTarget.dataset.id
-    setFilterActive(id)
+    setFilterActiveId(id)
     filterDispatch(listFilterProps[id].action({}))
   }
 
   const handleDropdowmClick = (e) => {
     dropdownContent.current.classList.toggle('show')
-    // console.log('handleDropdowmClick', dropdownContent);
   }
-
 
   useEffect(() => {
     dropdownContent.current.classList.remove('show')
@@ -62,7 +59,7 @@ function ProductsFilterNavigation({ gridBtnOnClick, listBtnOnClick, isGridDispla
         <p className="only-pc">Ưu tiên xem:</p>
         <div className="flex">
           {listFilterProps.map((e, i) => {
-            let buttonActiveCss = i === filterActive ? 'active' : ''
+            let buttonActiveCss = i === filterActiveId ? 'active' : ''
             return (
               <button
                 className={buttonActiveCss}
@@ -87,7 +84,7 @@ function ProductsFilterNavigation({ gridBtnOnClick, listBtnOnClick, isGridDispla
               ref={dropdownContent}
             >
               {listFilterProps.map((e, i) => {
-                let filterActiveCss = i === filterActive ? 'active' : ''
+                let filterActiveCss = i === filterActiveId ? 'active' : ''
                 return (
                   <li
                     className={filterActiveCss}

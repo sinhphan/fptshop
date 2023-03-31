@@ -319,6 +319,7 @@
 .product.list .product-price .strike-price {
   display: flex;
   padding-top: 10px;
+  padding-bottom: 10px;
 }
 
 .product.list .product-price .strike-price .cd {

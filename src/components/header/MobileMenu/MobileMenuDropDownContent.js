@@ -1,19 +1,20 @@
-const MobileMenuDropDownContent = ({mobileChild,open}) => {
+import { memo } from "react"
+
+function MobileMenuDropDownContent({ mobileChild, open }) {
   let links = mobileChild[0].listLink
-  let cssOpen = open ? {display:'flex'} : {display:'none'}
-  // console.log('MobileMenuDropDownContent: open: '  ,open);
+  let cssOpen = open ? { display: 'flex' } : { display: 'none' }
   return (
-    <div 
+    <div
       className="dropdown-content flex"
       style={cssOpen}
     >
-      {links.map((e,i)=>{
+      {links.map((e, i) => {
         return <a href={e.link} className="c-6" key={i}>
-                {e.text}
-              </a>
+          {e.text}
+        </a>
       })}
     </div>
   )
 }
 
-export default MobileMenuDropDownContent
+export default MobileMenuDropDownContent = memo(MobileMenuDropDownContent)

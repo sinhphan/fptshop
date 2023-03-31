@@ -1,29 +1,24 @@
 import { DATA } from "../../asset/data/data";
 import * as ACTIONS from "./actionsConstant";
-import * as CATEGORYS from "./categoryConstant";
-
 
 function filterReducer(state, action) {
   let payload = action.payload
   let newState = {}
   let filteredProducts = []
 
-  console.log('filterReducer payload', payload);
-
   switch (action.type) {
     case ACTIONS.FILTER_ACTION:
 
-      let listAttributeSpecItem
-      let listProductId
+      let attributeSpecItems
+      let productIds
       let hasFilterByCustomer = payload.filter(e => e.id > -1).length > 0
       let listProductLast = []
-
 
       payload.sort((a, b) => a.parentOrder - b.parentOrder)
 
       if (hasFilterByCustomer) {
         let listProduct = [...DATA.listDefault.list]
-        let listProductTemp = []
+        let productsTemp = []
         let data = [...listProduct]
 
         let brandCheckedItems = payload.filter(e => e.parentOrder === -1)
@@ -35,248 +30,123 @@ function filterReducer(state, action) {
         let ssdCheckedItems = payload.filter(e => e.parentOrder === 5)
 
         if (brandCheckedItems[0].id !== -1) {
-          listProductTemp = []
+          productsTemp = []
           brandCheckedItems.forEach(e => {
             filteredProducts = data.filter(product =>
               product.brandName.toLowerCase() === e.searchKey.toLowerCase()
             )
-            listProductTemp = [...listProductTemp, ...filteredProducts]
+            productsTemp = [...productsTemp, ...filteredProducts]
           })
-          listProduct = [...listProductTemp]
+          listProduct = [...productsTemp]
         }
-
-        // console.log('filterReducer : listproduct', listProduct);
 
         data = [...listProduct]
         if (priceCheckedItems[0].id !== -1) {
-          listProductTemp = []
+          productsTemp = []
           priceCheckedItems.forEach(e => {
             filteredProducts = data.filter(product =>
               filterByPrice(e.searchKey, product.productVariant.price)
             )
-            listProductTemp = [...listProductTemp, ...filteredProducts]
+            productsTemp = [...productsTemp, ...filteredProducts]
           })
-          listProduct = [...listProductTemp]
+          listProduct = [...productsTemp]
         }
 
         data = [...listProduct]
         if (screenSizeCheckedItems[0].id !== -1) {
-          listProductTemp = []
+          productsTemp = []
           screenSizeCheckedItems.forEach(e => {
-            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
-              attributeSpecItem.attributeID === 33 &&
+            let isScreenSize = attributeSpecItem => attributeSpecItem.attributeID === 33 &&
               filterByScreenSize(e.searchKey, attributeSpecItem.specName)
-            )
 
-            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
-
+            attributeSpecItems = state.attributeSpecItems.filter(isScreenSize)
+            productIds = attributeSpecItems.map(attributeSpecItem => attributeSpecItem.productID)
             filteredProducts = data.filter(product =>
-              listProductId.includes(product.id)
+              productIds.includes(product.id)
             )
-
-
-            listProductTemp = [...listProductTemp, ...filteredProducts]
+            productsTemp = [...productsTemp, ...filteredProducts]
           })
-          listProduct = [...listProductTemp]
+          listProduct = [...productsTemp]
         }
 
         data = [...listProduct]
         if (cpuCheckedItems[0].id !== -1) {
-          listProductTemp = []
+          productsTemp = []
           cpuCheckedItems.forEach(e => {
-            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
-              attributeSpecItem.attributeID === 34 &&
+            let isCpu = attributeSpecItem => attributeSpecItem.attributeID === 34 &&
               filterByCPU(e.searchKey, attributeSpecItem.specName)
-            )
 
-            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
-
+            attributeSpecItems = state.attributeSpecItems.filter(isCpu)
+            productIds = attributeSpecItems.map(attributeSpecItem => attributeSpecItem.productID)
             filteredProducts = data.filter(product =>
-              listProductId.includes(product.id)
+              productIds.includes(product.id)
             )
-
-            listProductTemp = [...listProductTemp, ...filteredProducts]
+            productsTemp = [...productsTemp, ...filteredProducts]
           })
-          listProduct = [...listProductTemp]
+          listProduct = [...productsTemp]
         }
-
 
         data = [...listProduct]
         if (ramCheckedItems[0].id !== -1) {
-          listProductTemp = []
+          productsTemp = []
+
           ramCheckedItems.forEach(e => {
-            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
-              attributeSpecItem.attributeID === 35 &&
+            let isRam = attributeSpecItem => attributeSpecItem.attributeID === 35 &&
               filterByRAM(e.searchKey, attributeSpecItem.specName)
-            )
-
-            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
-
+            attributeSpecItems = state.attributeSpecItems.filter(isRam)
+            productIds = attributeSpecItems.map(attributeSpecItem => attributeSpecItem.productID)
             filteredProducts = data.filter(product =>
-              listProductId.includes(product.id)
+              productIds.includes(product.id)
             )
-            listProductTemp = [...listProductTemp, ...filteredProducts]
+            productsTemp = [...productsTemp, ...filteredProducts]
           })
-          listProduct = [...listProductTemp]
+          listProduct = [...productsTemp]
         }
 
 
         data = [...listProduct]
         if (graphicCardCheckedItems[0].id !== -1) {
-          listProductTemp = []
+          productsTemp = []
           graphicCardCheckedItems.forEach(e => {
-            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
+            attributeSpecItems = state.attributeSpecItems.filter(attributeSpecItem =>
               attributeSpecItem.attributeID === 36 &&
               filterByGraphicCard(e.searchKey, attributeSpecItem.specName)
             )
 
-            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
+            productIds = attributeSpecItems.map(attributeSpecItem => attributeSpecItem.productID)
 
             filteredProducts = data.filter(product =>
-              listProductId.includes(product.id)
+              productIds.includes(product.id)
             )
-            listProductTemp = [...listProductTemp, ...filteredProducts]
+            productsTemp = [...productsTemp, ...filteredProducts]
           })
-          listProduct = [...listProductTemp]
+          listProduct = [...productsTemp]
         }
 
         data = [...listProduct]
         if (ssdCheckedItems[0].id !== -1) {
-          listProductTemp = []
+          productsTemp = []
           ssdCheckedItems.forEach(e => {
-            listAttributeSpecItem = state.attributeSpecItems.filter(attributeSpecItem =>
+            attributeSpecItems = state.attributeSpecItems.filter(attributeSpecItem =>
               attributeSpecItem.attributeID === 27 &&
               filterBySSD(e.searchKey, attributeSpecItem.specName)
             )
 
-            listProductId = listAttributeSpecItem.map(attributeSpecItem => attributeSpecItem.productID)
+            productIds = attributeSpecItems.map(attributeSpecItem => attributeSpecItem.productID)
 
             filteredProducts = data.filter(product =>
-              listProductId.includes(product.id)
+              productIds.includes(product.id)
             )
-            listProductTemp = [...listProductTemp, ...filteredProducts]
+            productsTemp = [...productsTemp, ...filteredProducts]
           })
-          listProduct = [...listProductTemp]
+          listProduct = [...productsTemp]
         }
-
-
         listProductLast = [...listProduct]
-      } else {
+      }
+      //  !hasFilterByCustomer
+      else {
         listProductLast = DATA.listDefault.list
       }
-
-      // console.log('filterReducer payload', hasFilterByCustomer);
-      // if (hasFilterByCustomer) {
-      //   let lastCategory = payload[0].parentName
-      //   let data = [...DATA.listDefault.list]
-      //   let listProduct = []
-      //   payload.forEach((search, i) => {
-      //     let currentCategory = search.parentName
-
-      //     switch (search.parentName) {
-      //       case CATEGORYS.BRAND_CATEGORY:
-      //         if (search.id === -1) break
-
-      //         filteredProducts = data.filter(product =>
-      //           product.brandName.toLowerCase() === search.searchKey.toLowerCase()
-      //         )
-      //         listProduct = [...listProduct, ...filteredProducts]
-      //         break
-
-      //       case CATEGORYS.PRICE_CATEGORY:
-      //         if (search.id === -1) break
-
-      //         filteredProducts = data.filter(product =>
-      //           filterByPrice(search.searchKey, product.productVariant.price)
-      //         )
-
-      //         listProduct = [...listProduct, ...filteredProducts]
-
-      //         break
-
-      //       case CATEGORYS.SCREEN_SIZE_CATEGORY:
-      //         if (search.id === -1) break
-      //         listAttributeSpecItemByScreenSize = state.attributeSpecItems.filter(attributeSpecItem =>
-      //           attributeSpecItem.attributeID === 33 &&
-      //           filterByScreenSize(search.searchKey, attributeSpecItem.specName)
-      //         )
-
-      //         listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
-
-      //         filteredProducts = data.filter(product =>
-      //           listProductId.includes(product.id)
-      //         )
-
-      //         listProduct = [...listProduct, ...filteredProducts]
-      //         break
-
-      //       case CATEGORYS.CPU_CATEGORY:
-      //         if (search.id === -1) break
-
-      //         listAttributeSpecItemByScreenSize = state.attributeSpecItems.filter(attributeSpecItem =>
-      //           attributeSpecItem.attributeID === 34 &&
-      //           filterByCPU(search.searchKey, attributeSpecItem.specName)
-      //         )
-
-      //         listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
-
-      //         filteredProducts = data.filter(product =>
-      //           listProductId.includes(product.id)
-      //         )
-
-      //         listProduct = [...listProduct, ...filteredProducts]
-      //         break
-
-      //       case CATEGORYS.RAM_CATEGORY:
-      //         if (search.id === -1) break
-
-      //         listAttributeSpecItemByScreenSize = state.attributeSpecItems.filter(attributeSpecItem =>
-      //           attributeSpecItem.attributeID === 35 &&
-      //           filterByRAM(search.searchKey, attributeSpecItem.specName)
-      //         )
-
-      //         listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
-
-      //         filteredProducts = data.filter(product =>
-      //           listProductId.includes(product.id)
-      //         )
-
-      //         listProduct = [...listProduct, ...filteredProducts]
-
-      //         break
-
-      //       case CATEGORYS.SSD_CATEGORY:
-      //         if (search.id === -1) break
-
-      //         listAttributeSpecItemByScreenSize = state.attributeSpecItems.filter(attributeSpecItem =>
-      //           attributeSpecItem.attributeID === 27 &&
-      //           filterBySSD(search.searchKey, attributeSpecItem.specName)
-      //         )
-
-      //         listProductId = listAttributeSpecItemByScreenSize.map(attributeSpecItem => attributeSpecItem.productID)
-
-      //         filteredProducts = data.filter(product =>
-      //           listProductId.includes(product.id)
-      //         )
-
-      //         listProduct = [...listProduct, ...filteredProducts]
-      //         break
-
-      //       default:
-      //         break
-      //     }
-      //     console.log('filterReducer data 1:', i, data);
-      //     if (lastCategory !== currentCategory) {
-      //       data = [...listProduct]
-      //       console.log('filterReducer data 2:', i, data);
-      //     }
-      //     lastCategory = currentCategory
-      //   })
-
-      //   listProductLast = [...listProduct]
-      // } else {
-      //   listProductLast = DATA.listDefault.list
-      // }
 
       newState = {
         ...state,
@@ -285,33 +155,27 @@ function filterReducer(state, action) {
           list: listProductLast
         }
       }
-
-      console.log('filterReducer: newState : ', newState);
       return newState
 
     case ACTIONS.BEST_SELLING_FILTER_ACTION:
-      state.listDefault.list.sort((a, b) => {
-        // console.log(b.productVariant.stockQuantity - a.productVariant.stockQuantity);
-        return b.productVariant.stockQuantity - a.productVariant.stockQuantity
-      })
+      state.listDefault.list.sort((a, b) =>
+        b.productVariant.stockQuantity - a.productVariant.stockQuantity
+      )
       newState = { ...state }
       return newState
 
     case ACTIONS.LOW_PRICE_FILTER_ACTION:
-      state.listDefault.list.sort((a, b) => {
-        return a.productVariant.price - b.productVariant.price
-      })
+      state.listDefault.list.sort((a, b) =>
+        a.productVariant.price - b.productVariant.price
+      )
       newState = { ...state }
-
       return newState
 
     case ACTIONS.HIGH_PRICE_FILTER_ACTION:
-      state.listDefault.list.sort((a, b) => {
-        return b.productVariant.price - a.productVariant.price
-      })
-
+      state.listDefault.list.sort((a, b) =>
+        b.productVariant.price - a.productVariant.price
+      )
       newState = { ...state }
-
       return newState
 
     case ACTIONS.ZERO_PERCENT_PAYMENT_FILTER_ACTION:
@@ -324,19 +188,17 @@ function filterReducer(state, action) {
           list: filteredProducts
         }
       }
-
       return newState
+
     case ACTIONS.ONLINE_OFFER_FILTER_ACTION:
       return DATA
 
     default:
       break
   }
-
 }
 
 export default filterReducer
-
 
 function filterByPrice(key, price) {
   switch (key) {
