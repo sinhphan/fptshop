@@ -1,6 +1,7 @@
 import { memo, useContext, useEffect, useRef, useState } from "react"
-import { FilterContext, FilterDispatchContext } from "./main"
-import * as actions from '../../logic/filter_reducer/actions'
+
+import { FilterContext, FilterDispatchContext } from "../Main"
+import * as actions from '../../../logic/filter_reducer/actions'
 
 const listFilterProps = [
   {

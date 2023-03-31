@@ -1,6 +1,7 @@
 import { memo } from "react"
-import { DATA } from "../../asset/data/data"
-import { IMG_BRAND_SLIDE_URL } from "../../config/globalConfigs"
+
+import { DATA } from "../../../asset/data/data"
+import { IMG_BRAND_SLIDE_URL } from "../../../config/globalConfigs"
 
 const brandList = DATA.navFilter.listCategory.filter(e => e.parentID === 299)
 

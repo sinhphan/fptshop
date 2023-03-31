@@ -1,9 +1,9 @@
 
-import { Logo } from "../global"
+import { Logo } from "../../global"
 
-function HeaderLogo({onlcikMenuButton}) {
+function HeaderLogo({ onlcikMenuButton }) {
   // console.log('HeaderLogo re-render' );
-  
+
   return (
     <>
       {/* logo in pc */}
@@ -14,9 +14,9 @@ function HeaderLogo({onlcikMenuButton}) {
 
       {/* logo mobile  */}
       <div className="col c-8 only-mobile flex">
-        <div 
+        <div
           className="mobile-menu-btn"
-          onClick= {onlcikMenuButton}
+          onClick={onlcikMenuButton}
         >
           <div className="base-ic flex ali-center">
             <i className="demo-icon ic-menu"></i>

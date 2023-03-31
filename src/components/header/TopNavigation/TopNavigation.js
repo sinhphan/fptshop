@@ -1,7 +1,7 @@
 import { memo } from "react";
 
-import { ADMIN_SETTINGS } from "../../config"
-import TopNavigationLink from "./topNavigationLink"
+import { ADMIN_SETTINGS } from "../../../config"
+import TopNavigationLink from "./TopNavigationLink"
 
 const TOP_NAVMOBILE = ADMIN_SETTINGS.topNavMobile
 

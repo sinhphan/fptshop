@@ -1,11 +1,11 @@
-import { ADMIN_SETTINGS } from "../../config"
-import { Icon } from "../global"
-import DropdownContentTypeList from './dropdownContentTypeList'
+import { ADMIN_SETTINGS } from "../../../config"
+import { Icon } from "../../global"
+import DropdownContentTypeList from "../MainNavigation/DropdownContentTypeList"
 
 const TOP_NAVS = ADMIN_SETTINGS.topNav
 
 
-function TopNavigationLink(){
+function TopNavigationLink() {
 
   return (<>
     {TOP_NAVS.map(

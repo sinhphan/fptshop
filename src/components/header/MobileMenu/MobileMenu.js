@@ -1,20 +1,20 @@
 import { memo } from "react"
-import { Logo } from "../global"
-import MobileMenuContent from "./mobileMenuContent"
+import { Logo } from "../../global"
+import MobileMenuContent from "./MobileMenuContent"
 
-function MobileMenu({open,closeMenu}) {
+function MobileMenu({ open, closeMenu }) {
   // console.log('MobileMenu re-render');
 
 
-  const handleStopCloseMenu = e=>{e.stopPropagation()}
+  const handleStopCloseMenu = e => { e.stopPropagation() }
 
   return (
     <>
-      <div 
-        className={`sidebar-mobile ${open ? '':'hide'}`}
-        onClick = {closeMenu}
+      <div
+        className={`sidebar-mobile ${open ? '' : 'hide'}`}
+        onClick={closeMenu}
       >
-        <div 
+        <div
           className="sidebar-wrap"
           onClick={handleStopCloseMenu}
         >
@@ -22,7 +22,7 @@ function MobileMenu({open,closeMenu}) {
             <div className="flex js-between">
               <Logo />
               <div className="base-ic flex ali-center">
-                <i 
+                <i
                   className="demo-icon ic-close"
                   onClick={closeMenu}
                 ></i>
@@ -31,7 +31,7 @@ function MobileMenu({open,closeMenu}) {
           </div>
 
           <MobileMenuContent />
-          
+
           <div className="sidebar-footer"></div>
         </div>
         {/* end sidebar ads  */}

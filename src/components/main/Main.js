@@ -4,10 +4,10 @@ import { ADMIN_SETTINGS } from "../../config/adminSettings"
 import { createInitCheckedItems } from "../../config/createInitCheckedItems"
 import { filterAction } from "../../logic/filter_reducer/actions"
 import filterReducer from "../../logic/filter_reducer/filterReducer"
-import BreadCrum from "./breadCrum"
-import MainContent from "./mainContent"
-import MainSidebar from "./mainSidebar"
-import MainSlider from "./mainSlider"
+import BreadCrum from "./MainContentHeader/BreadCrum"
+import MainContent from "./MainContentHeader/MainContent"
+import MainSidebar from "./MainSideBar/MainSidebar"
+import MainSlider from "./MainContentHeader/MainSlider"
 
 export const FilterContext = createContext(null)
 export const FilterDispatchContext = createContext(null)

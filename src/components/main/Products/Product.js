@@ -1,7 +1,7 @@
 import { memo } from "react"
-import { IMG_URL } from "../../config/globalConfigs"
-import { vndConvert } from "../../logic/global"
-import ProductPromotion from "./productPromotion"
+import { IMG_URL } from "../../../config/globalConfigs"
+import { vndConvert } from "../../../logic/global"
+import ProductPromotion from "./ProductPromotion"
 
 function Product({ product, attrs, promotionItems, isGridDisplay }) {
 

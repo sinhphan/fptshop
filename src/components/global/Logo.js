@@ -8,7 +8,7 @@ function Logo() {
   return (<>
     <div
       className="header-logo"
-     style={{backgroundImage: logo}}
+      style={{ backgroundImage: logo }}
     >
     </div>
   </>)

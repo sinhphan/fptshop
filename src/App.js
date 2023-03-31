@@ -2,9 +2,9 @@ import './asset/css/baseresponsive.css';
 import './asset/css/base.css';
 import './asset/css/iconfont.css';
 
-import Header from './components/header/header';
-import Main from './components/main/main';
-import Footer from './components/footer/footer';
+import Header from './components/header/Header';
+import Main from './components/main/Main';
+import Footer from './components/footer/Footer';
 
 function App() {
   return (

@@ -1,7 +1,6 @@
 import { memo } from "react"
-import { ADMIN_SETTINGS, SUB_NAVIGATIONS } from "../../config"
-import MainNavigationItem from "./mainNavigationItem"
-
+import { ADMIN_SETTINGS, SUB_NAVIGATIONS } from "../../../config"
+import MainNavigationItem from "./MainNavigationItem"
 const mainNav = ADMIN_SETTINGS.mainNav
 
 function MainNavigation() {
@@ -88,27 +87,27 @@ const CustomMenu3 = ({ menus }) => {
 
         {bestSell.listLink.map((link, linkId) => {
           return (
-          <div 
-            className="product flex" 
-            key={linkId}
-          >
-            <div className="product-img">
+            <div
+              className="product flex"
+              key={linkId}
+            >
+              <div className="product-img">
 
-            <a href={link.link}>
-              <img
-                src={link.image}
-                alt=""
-              />
-            </a>
-              
-            </div>
-            <div className="product-desc">
-              <a href={link.link}>{link.text}</a>
-              <a href={link.link}><span>{link.price}</span></a>
-              
-            </div>
+                <a href={link.link}>
+                  <img
+                    src={link.image}
+                    alt=""
+                  />
+                </a>
 
-          </div>)
+              </div>
+              <div className="product-desc">
+                <a href={link.link}>{link.text}</a>
+                <a href={link.link}><span>{link.price}</span></a>
+
+              </div>
+
+            </div>)
         })}
       </div>
       <div className="product-sale flex ali-center c-6">

@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
-import { createInitCheckedItems } from "../../config/createInitCheckedItems";
-import { CheckedItemsContext, FilterContext, SetCheckedItemsContext } from "./main";
+import { createInitCheckedItems } from "../../../config/createInitCheckedItems";
+import { CheckedItemsContext, FilterContext, SetCheckedItemsContext } from "../Main";
 
 function MainContentFilteredList() {
   let filteredProducts = useContext(FilterContext)

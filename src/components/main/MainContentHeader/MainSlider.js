@@ -1,5 +1,5 @@
 import { memo } from 'react'
-import '../../asset/css/slider.css'
+import '../../../asset/css/slider.css'
 
 function MainSlider() {
   return (<div className="slider">

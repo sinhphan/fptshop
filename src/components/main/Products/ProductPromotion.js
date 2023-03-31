@@ -1,5 +1,5 @@
 import { memo, useState } from "react"
-import { IMG_URL } from "../../config/globalConfigs"
+import { IMG_URL } from "../../../config/globalConfigs"
 
 function ProductPromotion({ promotions, isGridDisplay }) {
 

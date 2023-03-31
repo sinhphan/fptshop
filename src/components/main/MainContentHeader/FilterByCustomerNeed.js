@@ -1,6 +1,6 @@
 import { memo } from "react"
-import { DATA } from "../../asset/data/data"
-import { IMG_CUSTOMER_NEED_THUMB } from "../../config/globalConfigs"
+import { DATA } from "../../../asset/data/data"
+import { IMG_CUSTOMER_NEED_THUMB } from "../../../config/globalConfigs"
 
 const listFilterByCustomer = DATA.navFilterAttributeItem.specItems.filter(e => e.attributeID === 133)
 

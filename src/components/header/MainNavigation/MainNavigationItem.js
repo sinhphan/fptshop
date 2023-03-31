@@ -1,13 +1,13 @@
-import { Icon } from "../global"
-import MainNavDropdownContent from "./mainNavDropdownContent"
+import { Icon } from "../../global"
+import MainNavDropdownContent from "./MainNavDropdownContent"
 
 
-function MainNavigationItem({ childrens, navItem }){
+function MainNavigationItem({ childrens, navItem }) {
   let hasChildrens = childrens.length > 0
   let cssClass = 'main-nav-pc-item'
-  
-  if(hasChildrens && childrens[0].dropdownType === 'box') cssClass = 'hover-dropdown ddtype-box main-nav-pc-item'
-  if(hasChildrens && childrens[0].dropdownType === 'list') cssClass = 'hover-dropdown main-nav-pc-item'
+
+  if (hasChildrens && childrens[0].dropdownType === 'box') cssClass = 'hover-dropdown ddtype-box main-nav-pc-item'
+  if (hasChildrens && childrens[0].dropdownType === 'list') cssClass = 'hover-dropdown main-nav-pc-item'
   // console.log('MainNavigationItem' , childrens);
 
 

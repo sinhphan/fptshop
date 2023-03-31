@@ -1,10 +1,10 @@
 import { memo, useContext } from "react";
-import Products from "./products";
-import "../../asset/css/main-content.css"
-import BrandListSlider from "./brandListSlider";
-import FilterByCustomerNeed from "./filterByCustomerNeed";
-import { CheckedItemsContext } from "./main";
-import MainContentFilteredList from "./mainContentFilteredList";
+import Products from "../Products/Products";
+import "../../../asset/css/main-content.css"
+import BrandListSlider from "./BrandListSlider";
+import FilterByCustomerNeed from "./FilterByCustomerNeed";
+import { CheckedItemsContext } from "../Main";
+import MainContentFilteredList from "./MainContentFilteredList";
 
 function MainContent() {
   let checkedItems = useContext(CheckedItemsContext)

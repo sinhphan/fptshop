@@ -1,2 +1,2 @@
-export {default as Logo} from './logo.js'
-export {default as Icon} from './icon.js'
+export { default as Logo } from './Logo.js'
+export { default as Icon } from './Icon.js'

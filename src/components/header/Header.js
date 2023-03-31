@@ -1,11 +1,11 @@
-import {memo} from 'react'
+import { memo } from 'react'
 
 import "../../asset/css/header.css"
-import MainNavigation from './mainNavigation'
-import TopNavigationWrap from './topNavigationWrap'
+import MainNavigation from './MainNavigation/MainNavigation'
+import TopNavigationWrap from './TopNavigation/TopNavigationWrap'
 
 
-function Header(){
+function Header() {
   // console.log('Header re-render');
   return (
     <>

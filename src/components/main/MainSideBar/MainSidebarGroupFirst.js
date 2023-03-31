@@ -1,7 +1,7 @@
 import { memo, useContext, useEffect, useState } from "react"
-import { DATA } from "../../asset/data/data"
-import { ADMIN_SETTINGS } from "../../config/adminSettings"
-import { CheckedItemsContext, FilterContext } from "./main"
+import { DATA } from "../../../asset/data/data"
+import { ADMIN_SETTINGS } from "../../../config/adminSettings"
+import { CheckedItemsContext, FilterContext } from "../Main"
 
 
 

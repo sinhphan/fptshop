@@ -1,10 +1,10 @@
 import { memo, useCallback, useContext, useState } from "react"
-import { FilterContext } from "./main"
+import { FilterContext } from "../Main"
 
-import Product from "./product"
-import ProductNotFound from "./productNotFound"
-import ProductsFilterNavigation from "./productsFilterNavigation"
-import ViewMoreButton from "./viewMoreButton"
+import Product from "./Product"
+import ProductNotFound from "./ProductNotFound"
+import ProductsFilterNavigation from "./ProductsFilterNavigation"
+import ViewMoreButton from "./ViewMoreButton"
 
 function Products() {
   const productData = useContext(FilterContext)
