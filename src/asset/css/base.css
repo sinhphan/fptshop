@@ -67,7 +67,8 @@ body {
   line-height: 1.42857143;
   color: #000;
   position: relative;
-  overflow-x: hidden
+  overflow-x: hidden;
+  background-color: #f8f9fa;
 }
 
 a,
