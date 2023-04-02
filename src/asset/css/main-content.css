@@ -294,7 +294,8 @@
 }
 
 .product-img img {
-  height: 215px;
+  width: 100%;
+  max-height: 215px;
   transition: 0.5s all;
 }
 
@@ -505,6 +506,7 @@
   font-weight: 700;
   text-align: center;
   padding: 5px 0;
+  height: 35px;
   border: 1px solid transparent;
   text-transform: uppercase;
   border-radius: 4px;
@@ -512,7 +514,8 @@
 
 .product-btn-buy {
   display: inline-block;
-  width: 160px;
+  width: 53.8%;
+  max-width: 160px;
   margin-right: 10px;
 }
 
@@ -522,6 +525,7 @@
 }
 
 .product-btn-compare {
+
   width: 100px;
   font-weight: 500;
   color: #fff;
