@@ -15,6 +15,7 @@ export const CheckedItemsContext = createContext(null)
 export const SetCheckedItemsContext = createContext(null)
 
 function Main() {
+  let isPC = document.body.offsetWidth > 1023
   //  for first group of main sidebar
   const parentCategory = DATA.navFilter.listCategory.filter(e => e.id == ADMIN_SETTINGS.firstGroupOfSidebar)
   // for second group of main sidebar
@@ -99,11 +100,12 @@ function Main() {
                 <BreadCrum />
                 <MainSlider />
                 <div className="main-content flex">
-                  <MainSidebar
-                    parentCategory={parentCategory}
-                    attributeItems={attributeItems}
-                    onClick={handleCheckItem}
-                  />
+                  {isPC &&
+                    <MainSidebar
+                      parentCategory={parentCategory}
+                      attributeItems={attributeItems}
+                      onClick={handleCheckItem}
+                    />}
                   <MainContent />
                 </div>
               </div>

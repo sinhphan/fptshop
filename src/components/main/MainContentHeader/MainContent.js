@@ -13,7 +13,7 @@ function MainContent() {
   let filteredListCss = hasCustomerFilters ? '' : 'hide'
 
   return (
-    <div className="l-9">
+    <div className="l-9 c-12">
       <div className={mainHeaderCss}>
         <BrandListSlider />
         <FilterByCustomerNeed />

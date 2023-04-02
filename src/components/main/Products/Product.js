@@ -7,7 +7,7 @@ import ProductPromotion from "./ProductPromotion"
 function Product({ product, attrs, promotionItems, isGridDisplay }) {
   const progress = product.productVariant.price * 100 / product.productVariant.priceMarket
 
-  let gridCss = isGridDisplay ? 'l-4 relative' : 'l-12 flex'
+  let gridCss = isGridDisplay ? 'l-4 relative c-6' : 'l-12 flex'
   let productCss = isGridDisplay ? "product grid l-12 flex" : "product list l-12 flex"
   let productImgCss = isGridDisplay ? "product-img flex" : "product-img flex l-4"
   let productPriceCss = isGridDisplay ? "product-price" : "product-price l-4"
@@ -80,7 +80,7 @@ function Product({ product, attrs, promotionItems, isGridDisplay }) {
 export default Product = memo(Product)
 
 const ProductSaleBag = memo(({ product, isGridDisplay }) => {
-  let productSaleCss = isGridDisplay ? "product-sale flex" : "product-sale"
+  let productSaleCss = isGridDisplay ? "product-sale flex only-pc" : "product-sale"
 
   return (
     <div className={productSaleCss}>
